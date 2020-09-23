@@ -1,0 +1,97 @@
+{
+  "general" : {
+    "errors" : {
+      "validation.required" : "Este campo é obrigatório",
+      "validation.credit_card" : "Número de cartão de crédito inválido",
+      "validation.email" : "E-mail inválido",
+      "validation.password" : "Password inválido. O password deve ter pelo 6 caracteres e conter ao menos um número",
+      "validation.maxlength" : "O Campo deve conter até {{requiredLength}} caracteres",
+      "validation.minlength" : "O Campo deve conter ao menos {{requiredLength}} caracteres",
+      "validation.phone_number" : "Telefone inválido",
+      "validation.cpf" : "CPF inválido",
+      "validation.cnpj" : "CNPJ inválido",
+      "validation.max" : "Deve ser menor ou igual a {{max}}",
+      "validation.min" : "Deve ser maior ou igual a {{min}}",
+      "validation.must_match" : "Os Campos informados não conferem",
+      "validation.invalid_time" : "Informe uma hora válida",
+      "validation.invalid_time_option" : "Informe uma hora válida",
+      "validation.invalid_time_period" : "A data deve estar entre {{min}} e {{max}}",
+      "validation.empty" : ""
+    },
+    "buttons" : {
+      "ok" : "OK",
+      "cancel" : "Cancelar",
+      "save" : "Salvar",
+      "edit" : "Editar",
+      "delete" : "Excluir",
+      "clear" : "Limpar",
+      "search" : "Filtrar",
+      "add" : "Adicionar registro",
+      "close" : "Fechar",
+      "back" : "Voltar",
+      "send" : "Enviar",
+      "advance" : "Avançar",
+      "change_password" : "Redefinir senha",
+      "upload" : "Carregar",
+      "export" : "Exportar",
+      "export.CSV" : "CSV",
+      "export.HTML" : "HTML",
+      "export.PDF" : "PDF",
+      "export.XLSX" : "Excel",
+      "export.XML" : "Arquivo XML",
+      "export.ODS" : "Planilha ODS",
+      "export.XLS" : "Excel (xls)",
+      "finalize" : "Finalizar"
+    },
+    "labels" : {
+      "actions" : "Ações",
+      "edit" : "Editar",
+      "add" : "Incluir",
+      "view" : "Visualizar",
+      "filter" : "Filtros Avançados",
+      "new_user" : "Novo Usuário",
+      "all" : "Todos",
+      "select" : "Selecione",
+      "true" : "Sim",
+      "false" : "Não",
+      "remaining_chars" : "{{max}} caracteres restantes."
+    },
+    "messages" : {
+      "updated_record" : "Registro atualizado com sucesso",
+      "inserted_record" : "Registro incluído com sucesso",
+      "cant_be_undone" : "Isto não poderá ser desfeito.",
+      "confirm_record_delete" : "Deseja excluir o registro?",
+      "deleted_record" : "Registro excluído com sucesso",
+      "changed_password" : "Senha alterada com sucesso",
+      "loading" : "Carregando..."
+    },
+    "formats" : {
+      "date" : "dd/MM/yyyy",
+      "date_time" : "dd/MM/yyyy HH:mm",
+      "decimal_separator" : ",",
+      "thousand_separator" : "."
+    }
+  },
+  "enums" : { },
+  "layout" : {
+    "header" : {
+      "menu.fullscreen" : "Tela Cheia",
+      "menu.fullscreen.exit" : "Sair da Tela Cheia"
+    }
+  },
+  "menu" : {
+    "home" : "Início"
+  },
+  "error" : {
+    "500.title" : "Erro no servidor",
+    "500.message" : "Ocorreu uma condição inesperada enquanto o servidor tentava completar a solicitação.",
+    "404.title" : "Página não encontrada",
+    "404.message" : "A Página que você procura não existe ou outro erro ocorreu. Carregue a página novamente ou entre em contato com o serviço de suporte.",
+    "403.title" : "Acesso não autorizado",
+    "403.message" : "Você não tem permissão para acessar essa página.",
+    "hash-message" : "<br/>Ao reportar o problema, informe o seguinte código para identificarmos o erro: <b> {{code}} </b>",
+    "offline.title" : "Servidor offline",
+    "offline.message" : "Parece que a aplicação está fora do ar. Tente novamente em alguns minutos, se o problema persistir entre em contato com o serviço de suporte.",
+    "init.title" : "Tivemos problemas para iniciar a aplicação"
+  }
+}

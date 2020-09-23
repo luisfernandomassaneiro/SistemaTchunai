@@ -1,0 +1,97 @@
+{
+  "general" : {
+    "errors" : {
+      "validation.required" : "This field is required",
+      "validation.credit_card" : "Invalid credit card number",
+      "validation.email" : "Inválid E-mail",
+      "validation.password" : "Invalid Password. The password must have up to 6 characters and at least one number",
+      "validation.maxlength" : "This field must have up to {{requiredLength}} characters",
+      "validation.minlength" : "This field must have at least {{requiredLength}} characters",
+      "validation.phone_number" : "Invalid phone number",
+      "validation.cpf" : "Invalid CPF",
+      "validation.cnpj" : "Invalid CNPJ",
+      "validation.max" : "Must be greather or equal to {{max}}",
+      "validation.min" : "Must be less or equal to {{min}}",
+      "validation.must_match" : "The fields don't match",
+      "validation.invalid_time" : "The time is invalid",
+      "validation.invalid_time_option" : "The time is invalid",
+      "validation.invalid_time_period" : "Date must be between {{min}} and {{max}}",
+      "validation.empty" : ""
+    },
+    "buttons" : {
+      "ok" : "OK",
+      "cancel" : "Cancel",
+      "save" : "Save",
+      "edit" : "Edit",
+      "delete" : "Delete",
+      "clear" : "Clear",
+      "search" : "Search",
+      "add" : "New record",
+      "close" : "Close",
+      "back" : "Go back",
+      "send" : "Send",
+      "advance" : "Next",
+      "change_password" : "Change password",
+      "upload" : "Upload",
+      "export" : "Export",
+      "export.CSV" : "CSV",
+      "export.HTML" : "HTML",
+      "export.PDF" : "PDF",
+      "export.XLSX" : "Excel",
+      "export.XML" : "XML File",
+      "export.ODS" : "ODS Sheet",
+      "export.XLS" : "Excel (xls)",
+      "finalize" : "Complete"
+    },
+    "labels" : {
+      "actions" : "Actions",
+      "edit" : "Update",
+      "add" : "Insert",
+      "view" : "View",
+      "filter" : "Advanced Filtering",
+      "new_user" : "New User",
+      "all" : "All",
+      "select" : "Select",
+      "true" : "Yes",
+      "false" : "No",
+      "remaining_chars" : "{{max}} remaining chars."
+    },
+    "messages" : {
+      "updated_record" : "Record successfully updated",
+      "inserted_record" : "Record successfully created",
+      "cant_be_undone" : "This can't be undone.",
+      "confirm_record_delete" : "Do you really wish to remove the record?",
+      "deleted_record" : "Record successfully removed",
+      "changed_password" : "Password changed successfully",
+      "loading" : "Loading..."
+    },
+    "formats" : {
+      "date" : "dd/MM/yyyy",
+      "date_time" : "dd/MM/yyyy HH:mm",
+      "decimal_separator" : ".",
+      "thousand_separator" : ","
+    }
+  },
+  "enums" : { },
+  "layout" : {
+    "header" : {
+      "menu.fullscreen" : "Fullscreen",
+      "menu.fullscreen.exit" : "Exit Fullscreen"
+    }
+  },
+  "menu" : {
+    "home" : "Home"
+  },
+  "error" : {
+    "500.title" : "Server error",
+    "500.message" : "There was an unexpeted error on server while your request was being processed.",
+    "404.title" : "Page not found",
+    "404.message" : "The page tou requested does not exist or there was a error processing your request. Reload the page and contact our support if the error continues.",
+    "403.title" : "Forbidden",
+    "403.message" : "You don't have access to this page.",
+    "hash-message" : "<br/>When reporting the error, please inform the following code so we can identify the error: <b> {{code}} </b>",
+    "offline.title" : "Server is offline",
+    "offline.message" : "The Backend applications seems to be offline. try again in a few minutes, if the problem persist, contact ou support team.",
+    "init.title" : "The Application cannot be started"
+  }
+}
