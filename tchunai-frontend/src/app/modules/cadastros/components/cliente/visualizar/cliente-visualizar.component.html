@@ -1,0 +1,35 @@
+<app-page-header
+  [title]="'cadastros.cliente.view.title'"
+  [breabcrumb]="breadcrumb"></app-page-header>
+
+<nz-card>
+  <div nz-row nzGutter="16">
+    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+      <label class='page-view-label'>{{ 'cadastros.cliente.field.nome' | translate }}</label>
+      <p class='page-view-value'>{{ entity.nome }}</p>
+    </div>
+    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+      <label class='page-view-label'>{{ 'cadastros.cliente.field.endereco' | translate }}</label>
+      <p class='page-view-value'>{{ entity.endereco }}</p>
+    </div>
+    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+      <label class='page-view-label'>{{ 'cadastros.cliente.field.telefone' | translate }}</label>
+      <p class='page-view-value'>{{ entity.telefone }}</p>
+    </div>
+    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+      <label class='page-view-label'>{{ 'cadastros.cliente.field.email' | translate }}</label>
+      <p class='page-view-value'>{{ entity.email }}</p>
+    </div>
+  </div>
+  <div nz-row nzGutter="16">
+    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+      <label class='page-view-label'>{{ 'cadastros.cliente.field.active' | translate }}</label>
+      <p class='page-view-value pb0'>{{'general.labels.' + entity.active | translate}}</p>
+    </div>
+  </div>
+  <div class="actions">
+    <button nz-button class="btn-excluir" nzType="danger" (click)="delete(this.entity)">{{ 'general.buttons.delete' | translate }}</button>
+    <button nz-button class="btn-alterar" nzType="primary" [routerLink]="['../../alterar', hash.encode(entity.id)]">{{ 'general.buttons.edit' | translate }}</button>
+    <button nz-button class="btn-voltar" nzType="default" [routerLink]="['../../']">{{ 'general.buttons.back' | translate }}</button>
+  </div>
+</nz-card>

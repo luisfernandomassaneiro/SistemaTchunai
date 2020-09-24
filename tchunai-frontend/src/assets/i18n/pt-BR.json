@@ -80,7 +80,10 @@
     }
   },
   "menu" : {
-    "home" : "Início"
+    "home" : "Início",
+    "cadastros" : "Cadastros",
+    "cadastros.cliente" : "Cliente",
+    "cadastros.produto" : "Produto"
   },
   "error" : {
     "500.title" : "Erro no servidor",
@@ -93,5 +96,28 @@
     "offline.title" : "Servidor offline",
     "offline.message" : "Parece que a aplicação está fora do ar. Tente novamente em alguns minutos, se o problema persistir entre em contato com o serviço de suporte.",
     "init.title" : "Tivemos problemas para iniciar a aplicação"
+  },
+  "cadastros" : {
+    "cliente.list.title" : "Listagem de Cliente",
+    "cliente.view.title" : "Visualização de Cliente",
+    "cliente.add.title" : "Inclusão de Cliente",
+    "cliente.edit.title" : "Edição de Cliente",
+    "cliente.field.id" : "Id",
+    "cliente.field.nome" : "Nome",
+    "cliente.field.endereco" : "Endereco",
+    "cliente.field.telefone" : "Telefone",
+    "cliente.field.email" : "Email",
+    "cliente.field.active" : "Ativo",
+    "produto.list.title" : "Listagem de Produto",
+    "produto.view.title" : "Visualização de Produto",
+    "produto.add.title" : "Inclusão de Produto",
+    "produto.edit.title" : "Edição de Produto",
+    "produto.field.id" : "Id",
+    "produto.field.descricao" : "Descricao",
+    "produto.field.precocusto" : "PrecoCusto",
+    "produto.field.precovenda" : "PrecoVenda",
+    "produto.field.percentuallucro" : "PercentualLucro",
+    "produto.field.peso" : "Peso",
+    "produto.field.active" : "Active"
   }
 }

@@ -8,39 +8,42 @@ import { HomeComponent } from './modules/home/components/home.component';
 import { ExceptionOfflineComponent } from '@shared/components/error/offline.component';
 import { ExceptionInitComponent } from '@shared/components/error/init.component';
 
-export const routes: Routes = [{
-  path: '',
-  redirectTo: 'home',
-  pathMatch: 'full',
+export const routes: Routes = [ {
+  path : '',
+  redirectTo : 'home',
+  pathMatch : 'full'
 }, {
-  path: '',
-  component: LayoutDefaultComponent,
-  children: [{
-    path: 'home',
-    component: HomeComponent,
-    data: {
-      title: 'Home',
-    },
-  }],
+  path : '',
+  component : LayoutDefaultComponent,
+  children : [ {
+    path : 'home',
+    component : HomeComponent,
+    data : {
+      title : 'Home'
+    }
+  }, {
+    path : 'cadastros',
+    loadChildren : () => import('./modules/cadastros/cadastros.module').then(m => m.CadastrosModule)
+  } ]
 }, {
-  path: 'error/403',
-  component: Exception403Component,
+  path : 'error/403',
+  component : Exception403Component
 }, {
-  path: 'error/404',
-  component: Exception404Component,
+  path : 'error/404',
+  component : Exception404Component
 }, {
-  path: 'error/500',
-  component: Exception500Component,
+  path : 'error/500',
+  component : Exception500Component
 }, {
-  path: 'error/offline',
-  component: ExceptionOfflineComponent,
+  path : 'error/offline',
+  component : ExceptionOfflineComponent
 }, {
-  path: 'error/init',
-  component: ExceptionInitComponent,
+  path : 'error/init',
+  component : ExceptionInitComponent
 }, {
-  path: '**',
-  component: Exception404Component,
-}];
+  path : '**',
+  component : Exception404Component
+} ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

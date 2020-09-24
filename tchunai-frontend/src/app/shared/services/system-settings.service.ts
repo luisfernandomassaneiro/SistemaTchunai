@@ -109,4 +109,15 @@ export class SystemSettingsService {
   constructor(private http: HttpClient) {
   }
 
+  public load(): Promise<boolean> {
+    return new Promise<boolean>((resolve, reject) => {
+      this.http.get<Settings>('api/application/settings').subscribe(value => {
+        this.settings = value;
+        resolve(true);
+      }, (e) => {
+        reject(e);
+      });
+    });
+  }
+
 }

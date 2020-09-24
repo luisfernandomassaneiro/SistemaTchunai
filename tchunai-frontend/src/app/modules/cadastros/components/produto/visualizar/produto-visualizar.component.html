@@ -1,0 +1,39 @@
+<app-page-header
+  [title]="'cadastros.produto.view.title'"
+  [breabcrumb]="breadcrumb"></app-page-header>
+
+<nz-card>
+  <div nz-row nzGutter="16">
+    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+      <label class='page-view-label'>{{ 'cadastros.produto.field.descricao' | translate }}</label>
+      <p class='page-view-value'>{{ entity.descricao }}</p>
+    </div>
+    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+      <label class='page-view-label'>{{ 'cadastros.produto.field.precocusto' | translate }}</label>
+      <p class='page-view-value'>{{ entity.precoCusto }}</p>
+    </div>
+    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+      <label class='page-view-label'>{{ 'cadastros.produto.field.precovenda' | translate }}</label>
+      <p class='page-view-value'>{{ entity.precoVenda }}</p>
+    </div>
+    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+      <label class='page-view-label'>{{ 'cadastros.produto.field.percentuallucro' | translate }}</label>
+      <p class='page-view-value'>{{ entity.percentualLucro }}</p>
+    </div>
+  </div>
+  <div nz-row nzGutter="16">
+    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+      <label class='page-view-label'>{{ 'cadastros.produto.field.peso' | translate }}</label>
+      <p class='page-view-value pb0'>{{ entity.peso }}</p>
+    </div>
+    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+      <label class='page-view-label'>{{ 'cadastros.produto.field.active' | translate }}</label>
+      <p class='page-view-value pb0'>{{'general.labels.' + entity.active | translate}}</p>
+    </div>
+  </div>
+  <div class="actions">
+    <button nz-button class="btn-excluir" nzType="danger" (click)="delete(this.entity)">{{ 'general.buttons.delete' | translate }}</button>
+    <button nz-button class="btn-alterar" nzType="primary" [routerLink]="['../../alterar', hash.encode(entity.id)]">{{ 'general.buttons.edit' | translate }}</button>
+    <button nz-button class="btn-voltar" nzType="default" [routerLink]="['../../']">{{ 'general.buttons.back' | translate }}</button>
+  </div>
+</nz-card>

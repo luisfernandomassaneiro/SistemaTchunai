@@ -1,0 +1,44 @@
+<app-page-header [title]="title" [breabcrumb]="breadcrumb"></app-page-header>
+
+<nz-card>
+  <form nz-form [formGroup]="form" nzLayout="vertical">
+    <div nz-row nzGutter="16">
+      <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="12">
+        <app-form-item label="cadastros.cliente.field.nome" controlName="nome">
+          <input nz-input type="text" formControlName='nome' [maxLength]='255' />
+        </app-form-item>
+      </div>
+      <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="12">
+        <app-form-item label="cadastros.cliente.field.endereco" controlName="endereco">
+          <input nz-input type="text" formControlName='endereco' [maxLength]='255' />
+        </app-form-item>
+      </div>
+    
+    </div>
+    <div nz-row nzGutter="16">
+        <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="12">
+          <app-form-item label="cadastros.cliente.field.telefone" controlName="telefone">
+            <input nz-input type="text" formControlName='telefone' [maxLength]='255' mask='(00) 00000-0000' />
+          </app-form-item>
+        </div>
+        <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="12">
+          <app-form-item label="cadastros.cliente.field.email" controlName="email">
+            <input nz-input type="text" formControlName='email' [maxLength]='255' />
+          </app-form-item>
+        </div>
+      </div>
+    <div nz-row nzGutter="16">
+      <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+        <app-form-item label="cadastros.cliente.field.active" controlName="active">
+          <label nz-checkbox formControlName='active'></label>
+        </app-form-item>
+      </div>
+    </div>
+    <div class="actions">
+      <button nz-button class="btn-salvar" nzType="primary"
+        (click)="save(form.value)">{{ 'general.buttons.save' | translate }}</button>
+      <button nz-button class="btn-voltar" nzType="default"
+        (click)="back()">{{ 'general.buttons.back' | translate }}</button>
+    </div>
+  </form>
+</nz-card>

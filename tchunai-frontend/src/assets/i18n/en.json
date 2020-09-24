@@ -80,7 +80,10 @@
     }
   },
   "menu" : {
-    "home" : "Home"
+    "home" : "Home",
+    "cadastros" : "Cadastros",
+    "cadastros.cliente" : "Cliente",
+    "cadastros.produto" : "Produto"
   },
   "error" : {
     "500.title" : "Server error",
@@ -93,5 +96,28 @@
     "offline.title" : "Server is offline",
     "offline.message" : "The Backend applications seems to be offline. try again in a few minutes, if the problem persist, contact ou support team.",
     "init.title" : "The Application cannot be started"
+  },
+  "cadastros" : {
+    "cliente.list.title" : "Cliente Listing",
+    "cliente.view.title" : "View Cliente",
+    "cliente.add.title" : "New Cliente",
+    "cliente.edit.title" : "Cliente Update",
+    "cliente.field.id" : "Id",
+    "cliente.field.nome" : "Nome",
+    "cliente.field.endereco" : "Endereco",
+    "cliente.field.telefone" : "Telefone",
+    "cliente.field.email" : "Email",
+    "cliente.field.active" : "Active",
+    "produto.list.title" : "Produto Listing",
+    "produto.view.title" : "View Produto",
+    "produto.add.title" : "New Produto",
+    "produto.edit.title" : "Produto Update",
+    "produto.field.id" : "Id",
+    "produto.field.descricao" : "Descricao",
+    "produto.field.precocusto" : "PrecoCusto",
+    "produto.field.precovenda" : "PrecoVenda",
+    "produto.field.percentuallucro" : "PercentualLucro",
+    "produto.field.peso" : "Peso",
+    "produto.field.active" : "Active"
   }
 }

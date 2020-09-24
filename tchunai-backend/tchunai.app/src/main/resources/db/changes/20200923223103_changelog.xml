@@ -1,0 +1,52 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="Nando (generated)" id="1600900271367-1">
+        <createTable tableName="produto">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="produtoPK"/>
+            </column>
+            <column defaultValueBoolean="true" name="ativo" type="BIT"/>
+            <column name="descricao" type="VARCHAR(255)"/>
+            <column name="percentual_lucro" type="INT"/>
+            <column name="peso" type="VARCHAR(255)"/>
+            <column name="preco_custo" type="DECIMAL(19, 2)"/>
+            <column name="preco_venda" type="DECIMAL(19, 2)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Nando (generated)" id="1600900271367-2">
+        <dropForeignKeyConstraint baseTableName="associacao_usuario_perfil" constraintName="FK_CONT_ASUP"/>
+    </changeSet>
+    <changeSet author="Nando (generated)" id="1600900271367-3">
+        <dropForeignKeyConstraint baseTableName="associacao_perfil_recurso" constraintName="FK_PERF_ASPR"/>
+    </changeSet>
+    <changeSet author="Nando (generated)" id="1600900271367-4">
+        <dropForeignKeyConstraint baseTableName="associacao_usuario_perfil" constraintName="FK_PERF_ASUP"/>
+    </changeSet>
+    <changeSet author="Nando (generated)" id="1600900271367-5">
+        <dropForeignKeyConstraint baseTableName="associacao_usuario_perfil" constraintName="FK_USUA_ASUP"/>
+    </changeSet>
+    <changeSet author="Nando (generated)" id="1600900271367-6">
+        <dropUniqueConstraint constraintName="UC_PERFILNOME_COL" tableName="perfil"/>
+    </changeSet>
+    <changeSet author="Nando (generated)" id="1600900271367-7">
+        <dropUniqueConstraint constraintName="UC_USUARIOEMAIL_COL" tableName="usuario"/>
+    </changeSet>
+    <changeSet author="Nando (generated)" id="1600900271367-8">
+        <dropUniqueConstraint constraintName="UC_USUARIOUSERNAME_COL" tableName="usuario"/>
+    </changeSet>
+    <changeSet author="Nando (generated)" id="1600900271367-9">
+        <dropTable tableName="associacao_perfil_recurso"/>
+    </changeSet>
+    <changeSet author="Nando (generated)" id="1600900271367-10">
+        <dropTable tableName="associacao_usuario_perfil"/>
+    </changeSet>
+    <changeSet author="Nando (generated)" id="1600900271367-11">
+        <dropTable tableName="contexto"/>
+    </changeSet>
+    <changeSet author="Nando (generated)" id="1600900271367-12">
+        <dropTable tableName="perfil"/>
+    </changeSet>
+    <changeSet author="Nando (generated)" id="1600900271367-13">
+        <dropTable tableName="usuario"/>
+    </changeSet>
+</databaseChangeLog>
