@@ -83,7 +83,8 @@
     "home" : "Home",
     "cadastros" : "Cadastros",
     "cadastros.cliente" : "Cliente",
-    "cadastros.produto" : "Produto"
+    "cadastros.produto" : "Produto",
+    "cadastros.movimentacaoestoque" : "Movimentacaoestoque"
   },
   "error" : {
     "500.title" : "Server error",
@@ -118,6 +119,19 @@
     "produto.field.precovenda" : "PrecoVenda",
     "produto.field.percentuallucro" : "PercentualLucro",
     "produto.field.peso" : "Peso",
-    "produto.field.active" : "Active"
+    "produto.field.active" : "Active",
+    "movimentacaoestoque.list.title" : "MovimentacaoEstoque Listing",
+    "movimentacaoestoque.view.title" : "View MovimentacaoEstoque",
+    "movimentacaoestoque.add.title" : "New MovimentacaoEstoque",
+    "movimentacaoestoque.edit.title" : "MovimentacaoEstoque Update",
+    "movimentacaoestoque.field.id" : "Id",
+    "movimentacaoestoque.field.nome" : "Nome",
+    "movimentacaoestoque.field.produto" : "Produto",
+    "movimentacaoestoque.field.tipomovimentacao" : "TipoMovimentacao",
+    "movimentacaoestoque.tipoMovimentacao.values.ENTRADA" : "ENTRADA",
+    "movimentacaoestoque.tipoMovimentacao.values.SAIDA" : "SAIDA",
+    "movimentacaoestoque.field.origemmovimentacao" : "OrigemMovimentacao",
+    "movimentacaoestoque.origemMovimentacao.values.ESTOQUE" : "ESTOQUE",
+    "movimentacaoestoque.origemMovimentacao.values.VENDA" : "VENDA"
   }
 }

@@ -82,8 +82,9 @@
   "menu" : {
     "home" : "Início",
     "cadastros" : "Cadastros",
-    "cadastros.cliente" : "Cliente",
-    "cadastros.produto" : "Produto"
+    "cadastros.cliente" : "Clientes",
+    "cadastros.produto" : "Produtos",
+    "cadastros.movimentacaoestoque" : "Estoque"
   },
   "error" : {
     "500.title" : "Erro no servidor",
@@ -113,11 +114,24 @@
     "produto.add.title" : "Inclusão de Produto",
     "produto.edit.title" : "Edição de Produto",
     "produto.field.id" : "Id",
-    "produto.field.descricao" : "Descricao",
-    "produto.field.precocusto" : "PrecoCusto",
-    "produto.field.precovenda" : "PrecoVenda",
-    "produto.field.percentuallucro" : "PercentualLucro",
+    "produto.field.descricao" : "Descrição",
+    "produto.field.precocusto" : "Preco de Custo",
+    "produto.field.precovenda" : "Preco de Venda",
+    "produto.field.percentuallucro" : "Percentual de Lucro",
     "produto.field.peso" : "Peso",
-    "produto.field.active" : "Active"
+    "produto.field.active" : "Ativo",
+    "movimentacaoestoque.list.title" : "Listagem de Movimentacao do Estoque",
+    "movimentacaoestoque.view.title" : "Visualização de Movimentacao do Estoque",
+    "movimentacaoestoque.add.title" : "Inclusão de Movimentacao do Estoque",
+    "movimentacaoestoque.edit.title" : "Edição de Movimentacao do Estoque",
+    "movimentacaoestoque.field.id" : "Id",
+    "movimentacaoestoque.field.nome" : "Nome",
+    "movimentacaoestoque.field.produto" : "Produto",
+    "movimentacaoestoque.field.tipomovimentacao" : "Movimentacao",
+    "movimentacaoestoque.tipoMovimentacao.values.ENTRADA" : "Entrada",
+    "movimentacaoestoque.tipoMovimentacao.values.SAIDA" : "Saída",
+    "movimentacaoestoque.field.origemmovimentacao" : "OrigemMovimentacao",
+    "movimentacaoestoque.origemMovimentacao.values.ESTOQUE" : "Estoque",
+    "movimentacaoestoque.origemMovimentacao.values.VENDA" : "Venda"
   }
 }

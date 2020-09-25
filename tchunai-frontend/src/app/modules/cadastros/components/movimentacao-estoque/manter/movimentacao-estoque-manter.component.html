@@ -1,0 +1,36 @@
+<app-page-header [title]="title" [breabcrumb]="breadcrumb"></app-page-header>
+
+<nz-card>
+  <form nz-form [formGroup]="form" nzLayout="vertical">
+      <div nz-row nzGutter="16">
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+              <app-form-item label="cadastros.movimentacaoestoque.field.nome" controlName="nome">
+                  <input nz-input type="text" formControlName='nome' [maxLength]='255'/>
+              </app-form-item>
+          </div>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+              <app-form-item label="cadastros.movimentacaoestoque.field.produto" controlName="produto" [required]="true">
+                  <app-lazy-list [loader]='produtoService' label='descricao' [nzPlaceHolder]="'general.labels.select' | translate" [nzAllowClear]='true' formControlName='produto' [compareWith]='comparator.compare("id")'></app-lazy-list>
+              </app-form-item>
+          </div>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+              <app-form-item label="cadastros.movimentacaoestoque.field.tipomovimentacao" controlName="tipoMovimentacao">
+                  <nz-select [nzAllowClear]='true' formControlName='tipoMovimentacao' [nzPlaceHolder]="'general.labels.select' | translate">
+  <nz-option *ngFor='let domain of tipoMovimentacaoDomain' [nzValue]='domain' [nzLabel]="'cadastros.movimentacaoestoque.tipoMovimentacao.values.' + domain | translate"></nz-option>
+</nz-select>
+              </app-form-item>
+          </div>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+              <app-form-item label="cadastros.movimentacaoestoque.field.origemmovimentacao" controlName="origemMovimentacao">
+                  <nz-select [nzAllowClear]='true' formControlName='origemMovimentacao' [nzPlaceHolder]="'general.labels.select' | translate">
+  <nz-option *ngFor='let domain of origemMovimentacaoDomain' [nzValue]='domain' [nzLabel]="'cadastros.movimentacaoestoque.origemMovimentacao.values.' + domain | translate"></nz-option>
+</nz-select>
+              </app-form-item>
+          </div>
+      </div>
+      <div class="actions">
+          <button nz-button class="btn-salvar" nzType="primary" (click)="save(form.value)">{{ 'general.buttons.save' | translate }}</button>
+          <button nz-button class="btn-voltar" nzType="default" (click)="back()">{{ 'general.buttons.back' | translate }}</button>
+      </div>
+  </form>
+</nz-card>

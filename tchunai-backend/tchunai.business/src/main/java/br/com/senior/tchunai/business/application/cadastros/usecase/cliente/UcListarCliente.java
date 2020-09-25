@@ -1,5 +1,6 @@
 package br.com.senior.tchunai.business.application.cadastros.usecase.cliente;
 
+import br.com.senior.tchunai.business.entity.cadastros.QCliente;
 import com.querydsl.core.BooleanBuilder;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import br.com.senior.tchunai.business.entity.cadastros.Cliente;
 import br.com.senior.tchunai.business.application.cadastros.dto.ClienteResumoDto;
 import br.com.senior.tchunai.business.repository.cadastros.ClienteRepository;
 import br.com.senior.tchunai.business.application.cadastros.mappers.ClienteResumoMapper;
+
+import static br.com.senior.tchunai.business.entity.cadastros.QCliente.cliente;
 import static br.com.senior.tchunai.lib.business.application.commom.QueryDslExpressionUtils.*;
 
 @Setter
@@ -25,7 +28,7 @@ public class UcListarCliente extends QueryPaginada<ListaPaginada<ClienteResumoDt
     protected ListaPaginada<ClienteResumoDto> execute() {
 
         BooleanBuilder filtro = new BooleanBuilder();
-	    //filtro.and(nullSafeContainsIgnoreCase(cliente.nome, nome));
+	    filtro.and(nullSafeContainsIgnoreCase(cliente.nome, nome));
 
         Page<Cliente> page = repository.findAll(filtro, getPage());
         return new ListaPaginada<>(page.getTotalElements(), page.getTotalPages(),

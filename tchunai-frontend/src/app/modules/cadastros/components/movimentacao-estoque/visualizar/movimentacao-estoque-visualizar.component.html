@@ -1,0 +1,29 @@
+<app-page-header
+  [title]="'cadastros.movimentacaoestoque.view.title'"
+  [breabcrumb]="breadcrumb"></app-page-header>
+
+<nz-card>
+  <div nz-row nzGutter="16">
+    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+      <label class='page-view-label'>{{ 'cadastros.movimentacaoestoque.field.nome' | translate }}</label>
+      <p class='page-view-value pb0'>{{ entity.nome }}</p>
+    </div>
+    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+      <label class='page-view-label'>{{ 'cadastros.movimentacaoestoque.field.produto' | translate }}</label>
+      <p class='page-view-value pb0'>{{ entity.produto ? entity.produto.descricao : '' }}</p>
+    </div>
+    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+      <label class='page-view-label'>{{ 'cadastros.movimentacaoestoque.field.tipomovimentacao' | translate }}</label>
+      <p class='page-view-value pb0'>{{ entity.tipoMovimentacao ? ('cadastros.movimentacaoestoque.tipoMovimentacao.values.' + entity.tipoMovimentacao | translate) : '' }}</p>
+    </div>
+    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+      <label class='page-view-label'>{{ 'cadastros.movimentacaoestoque.field.origemmovimentacao' | translate }}</label>
+      <p class='page-view-value pb0'>{{ entity.origemMovimentacao ? ('cadastros.movimentacaoestoque.origemMovimentacao.values.' + entity.origemMovimentacao | translate) : '' }}</p>
+    </div>
+  </div>
+  <div class="actions">
+    <button nz-button class="btn-excluir" nzType="danger" (click)="delete(this.entity)">{{ 'general.buttons.delete' | translate }}</button>
+    <button nz-button class="btn-alterar" nzType="primary" [routerLink]="['../../alterar', hash.encode(entity.id)]">{{ 'general.buttons.edit' | translate }}</button>
+    <button nz-button class="btn-voltar" nzType="default" [routerLink]="['../../']">{{ 'general.buttons.back' | translate }}</button>
+  </div>
+</nz-card>

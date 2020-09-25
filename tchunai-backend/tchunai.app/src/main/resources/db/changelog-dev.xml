@@ -9,5 +9,6 @@
     <include file="changes/03_context_schema.xml" relativeToChangelogFile="true"/>
     <include file="changes/20200923223103_changelog.xml" relativeToChangelogFile="true"/>
     <include file="changes/20200923230144_changelog.xml" relativeToChangelogFile="true"/>
+    <include file="changes/20200925010303_changelog.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

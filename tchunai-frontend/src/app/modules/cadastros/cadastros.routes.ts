@@ -1,3 +1,7 @@
+import { MovimentacaoEstoqueManterComponent } from './components/movimentacao-estoque/manter/movimentacao-estoque-manter.component';
+import { MovimentacaoEstoqueService } from './services/movimentacao-estoque.service';
+import { MovimentacaoEstoqueVisualizarComponent } from './components/movimentacao-estoque/visualizar/movimentacao-estoque-visualizar.component';
+import { MovimentacaoEstoqueListarComponent } from './components/movimentacao-estoque/listar/movimentacao-estoque-listar.component';
 import { ProdutoManterComponent } from './components/produto/manter/produto-manter.component';
 import { ProdutoService } from './services/produto.service';
 import { ProdutoVisualizarComponent } from './components/produto/visualizar/produto-visualizar.component';
@@ -58,6 +62,32 @@ const ROUTES = [
       {
         path: 'incluir',
         component: ProdutoManterComponent
+      } ]
+  },
+  {
+    path: 'movimentacaoestoque',
+    children: [
+      {
+        path: '',
+        component: MovimentacaoEstoqueListarComponent
+      },
+      {
+        path: 'visualizar/:id',
+        resolve: {
+          entity: MovimentacaoEstoqueService
+        },
+        component: MovimentacaoEstoqueVisualizarComponent
+      },
+      {
+        path: 'alterar/:id',
+        resolve: {
+          entity: MovimentacaoEstoqueService
+        },
+        component: MovimentacaoEstoqueManterComponent
+      },
+      {
+        path: 'incluir',
+        component: MovimentacaoEstoqueManterComponent
       } ]
   }
 ];
