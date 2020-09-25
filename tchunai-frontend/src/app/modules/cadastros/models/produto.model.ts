@@ -6,5 +6,5 @@ export class ProdutoModel {
   precoVenda: number;
   percentualLucro: number;
   peso: string;
-  active: boolean;
+  active: boolean = true;
 }

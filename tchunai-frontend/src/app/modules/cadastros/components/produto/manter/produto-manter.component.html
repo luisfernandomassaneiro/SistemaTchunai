@@ -10,12 +10,14 @@
           </div>
           <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
               <app-form-item label="cadastros.produto.field.precocusto" controlName="precoCusto">
-                  <app-number-input formControlName='precoCusto' maxLength='100' decimalLength='2'></app-number-input>
+                  <input currencyMask nz-input type="text" formControlName='field'
+                            [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', align: 'left' }" />
               </app-form-item>
           </div>
           <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
               <app-form-item label="cadastros.produto.field.precovenda" controlName="precoVenda">
-                  <app-number-input formControlName='precoVenda' maxLength='100' decimalLength='2'></app-number-input>
+                  <input currencyMask nz-input type="text" formControlName='precoVenda'
+                            [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', align: 'left' }" />
               </app-form-item>
           </div>
           <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
@@ -32,10 +34,7 @@
           </div>
           <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
               <app-form-item label="cadastros.produto.field.active" controlName="active">
-                  <nz-select formControlName='active' [nzAllowClear]='true' [nzPlaceHolder]="'general.labels.select' | translate">
-          <nz-option [nzValue]='false' [nzLabel]="'general.labels.false' | translate"></nz-option>
-          <nz-option [nzValue]='true' [nzLabel]="'general.labels.true' | translate"></nz-option>
-        </nz-select>
+                  <label nz-checkbox formControlName='active'></label>
               </app-form-item>
           </div>
       </div>
