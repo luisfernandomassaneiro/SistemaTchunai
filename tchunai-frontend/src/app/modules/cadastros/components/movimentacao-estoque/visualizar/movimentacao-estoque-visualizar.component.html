@@ -6,11 +6,7 @@
   <div nz-row nzGutter="16">
     <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
       <label class='page-view-label'>{{ 'cadastros.movimentacaoestoque.field.nome' | translate }}</label>
-      <p class='page-view-value pb0'>{{ entity.nome }}</p>
-    </div>
-    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
-      <label class='page-view-label'>{{ 'cadastros.movimentacaoestoque.field.produto' | translate }}</label>
-      <p class='page-view-value pb0'>{{ entity.produto ? entity.produto.descricao : '' }}</p>
+      <p class='page-view-value pb0'>{{ entity.notaFiscal }}</p>
     </div>
     <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
       <label class='page-view-label'>{{ 'cadastros.movimentacaoestoque.field.tipomovimentacao' | translate }}</label>

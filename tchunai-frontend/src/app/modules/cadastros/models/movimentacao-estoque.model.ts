@@ -2,8 +2,15 @@ import { ProdutoDominioModel } from '@shared/services/domain/cadastros/produto-d
 
 export class MovimentacaoEstoqueModel {
   id: number;
-  nome: string;
-  produto: ProdutoDominioModel;
+  notaFiscal: string;
+  data: Date = new Date();
   tipoMovimentacao: string;
   origemMovimentacao: string;
+  movimentacaoEstoqueDetalhes: MovimentacaoEstoqueDetalheModel[];
+}
+
+export class MovimentacaoEstoqueDetalheModel {
+  id: number;
+  produto: ProdutoDominioModel;
+  quantidade: number;
 }

@@ -20,13 +20,13 @@ public class UcListarMovimentacaoEstoque extends QueryPaginada<ListaPaginada<Mov
     @Autowired
     private MovimentacaoEstoqueRepository repository;
 
-    private String nome;
+    private String notaFiscal;
 
     @Override
     protected ListaPaginada<MovimentacaoEstoqueResumoDto> execute() {
 
         BooleanBuilder filtro = new BooleanBuilder();
-	    filtro.and(nullSafeContainsIgnoreCase(movimentacaoEstoque.nome, nome));
+	    filtro.and(nullSafeContainsIgnoreCase(movimentacaoEstoque.notaFiscal, notaFiscal));
 
         Page<MovimentacaoEstoque> page = repository.findAll(filtro, getPage());
         return new ListaPaginada<>(page.getTotalElements(), page.getTotalPages(),

@@ -1,0 +1,34 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="Nando (generated)" id="1601945163739-1">
+        <createTable tableName="movimentacao_estoque_detalhe">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="movimentacao_estoque_detalhePK"/>
+            </column>
+            <column name="quantidade" type="INT"/>
+            <column name="movimento_estoque_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="produto_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Nando (generated)" id="1601945163739-2">
+        <addColumn tableName="movimentacao_estoque">
+            <column name="data" type="datetime"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Nando (generated)" id="1601945163739-3">
+        <addForeignKeyConstraint baseColumnNames="produto_id" baseTableName="movimentacao_estoque_detalhe" constraintName="FK3h8q6o6cud817vjtrkroy2x50" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="produto" validate="true"/>
+    </changeSet>
+    <changeSet author="Nando (generated)" id="1601945163739-4">
+        <addForeignKeyConstraint baseColumnNames="movimento_estoque_id" baseTableName="movimentacao_estoque_detalhe" constraintName="FK6nm4k8rnmds5487wkseje77ll" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="movimentacao_estoque" validate="true"/>
+    </changeSet>
+    <changeSet author="Nando (generated)" id="1601945163739-5">
+        <dropForeignKeyConstraint baseTableName="movimentacao_estoque" constraintName="FKntvhwvqiu1irabekxqg4nt7ka"/>
+    </changeSet>
+    <changeSet author="Nando (generated)" id="1601945163739-6">
+        <dropColumn columnName="produto_id" tableName="movimentacao_estoque"/>
+    </changeSet>
+</databaseChangeLog>

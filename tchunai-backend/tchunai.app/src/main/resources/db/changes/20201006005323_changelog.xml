@@ -1,0 +1,59 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="Nando (generated)" id="1601945610053-1">
+        <createTable tableName="cliente">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="clientePK"/>
+            </column>
+            <column defaultValueBoolean="true" name="ativo" type="BIT"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="endereco" type="VARCHAR(255)"/>
+            <column name="nome" type="VARCHAR(255)"/>
+            <column name="telefone" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Nando (generated)" id="1601945610053-2">
+        <createTable tableName="movimentacao_estoque">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="movimentacao_estoquePK"/>
+            </column>
+            <column name="data" type="datetime"/>
+            <column name="nota_fiscal" type="VARCHAR(255)"/>
+            <column name="origem_movimentacao" type="VARCHAR(255)"/>
+            <column name="tipo_movimentacao" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Nando (generated)" id="1601945610053-3">
+        <createTable tableName="movimentacao_estoque_detalhe">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="movimentacao_estoque_detalhePK"/>
+            </column>
+            <column name="quantidade" type="INT"/>
+            <column name="movimento_estoque_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="produto_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Nando (generated)" id="1601945610053-4">
+        <createTable tableName="produto">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="produtoPK"/>
+            </column>
+            <column defaultValueBoolean="true" name="ativo" type="BIT"/>
+            <column name="descricao" type="VARCHAR(255)"/>
+            <column name="percentual_lucro" type="INT"/>
+            <column name="peso" type="VARCHAR(255)"/>
+            <column name="preco_custo" type="DECIMAL(19, 2)"/>
+            <column name="preco_venda" type="DECIMAL(19, 2)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Nando (generated)" id="1601945610053-5">
+        <addForeignKeyConstraint baseColumnNames="produto_id" baseTableName="movimentacao_estoque_detalhe" constraintName="FK3h8q6o6cud817vjtrkroy2x50" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="produto" validate="true"/>
+    </changeSet>
+    <changeSet author="Nando (generated)" id="1601945610053-6">
+        <addForeignKeyConstraint baseColumnNames="movimento_estoque_id" baseTableName="movimentacao_estoque_detalhe" constraintName="FK6nm4k8rnmds5487wkseje77ll" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="movimentacao_estoque" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

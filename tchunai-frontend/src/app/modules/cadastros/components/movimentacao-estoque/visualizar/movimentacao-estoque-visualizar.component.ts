@@ -18,8 +18,8 @@ export class MovimentacaoEstoqueVisualizarComponent implements OnInit {
 
   ngOnInit() {
     this.entity = this.route.snapshot.data.entity;
-    if (this.entity.nome) {
-      this.breadcrumb.push({label: this.entity.nome});
+    if (this.entity.notaFiscal) {
+      this.breadcrumb.push({label: this.entity.notaFiscal});
     } else {
       this.breadcrumb.push({label: 'general.labels.view'});
     }

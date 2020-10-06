@@ -29,7 +29,6 @@ export class MovimentacaoEstoqueManterComponent implements OnInit {
   constructor(
     public produtoService: ProdutoDominioService,
     public tipoMovimentacaoService: TipoMovimentacaoDominioService,
-    public origemMovimentacaoService: OrigemMovimentacaoDominioService,
     private service: MovimentacaoEstoqueService,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -40,12 +39,11 @@ export class MovimentacaoEstoqueManterComponent implements OnInit {
   ngOnInit(): void {
 
     this.tipoMovimentacaoService.list().subscribe(list => this.tipoMovimentacaoDomain = list);
-    this.origemMovimentacaoService.list().subscribe(list => this.origemMovimentacaoDomain = list);
 
     this.entity = this.route.snapshot.data.entity || new MovimentacaoEstoqueModel();
     if (this.entity.id) {
       this.title = 'cadastros.movimentacaoestoque.edit.title';
-      this.breadcrumb.push({label: this.entity.nome, route: ['../../visualizar/' + this.hash.encode(this.entity.id)]});
+      this.breadcrumb.push({label: this.entity.notaFiscal, route: ['../../visualizar/' + this.hash.encode(this.entity.id)]});
       this.breadcrumb.push({label: 'general.labels.edit'});
     } else {
       this.title = 'cadastros.movimentacaoestoque.add.title';
@@ -54,10 +52,9 @@ export class MovimentacaoEstoqueManterComponent implements OnInit {
 
     this.form = this.formBuilder.group({
       id: [this.entity.id, []],
-      nome: [this.entity.nome, []],
-      produto: [this.entity.produto, [Validators.required, ]],
+      notaFiscal: [this.entity.notaFiscal, []],
       tipoMovimentacao: [this.entity.tipoMovimentacao, []],
-      origemMovimentacao: [this.entity.origemMovimentacao, []],
+      data: [this.entity.data, []],
     });
   }
 

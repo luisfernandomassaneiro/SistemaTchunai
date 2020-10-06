@@ -2,9 +2,13 @@ package br.com.senior.tchunai.business.entity.cadastros;
 
 import br.com.senior.tchunai.lib.generator.annotations.GenHint;
 import lombok.Data;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Entity
@@ -18,11 +22,7 @@ public class MovimentacaoEstoque implements Serializable {
 
     @GenHint(label = true, listing = true)
     @Column(name = "nota_fiscal")
-    private String nome;
-
-    @ManyToOne
-    @JoinColumn(name = "produto_id", referencedColumnName = "id", nullable = false)
-    private Produto produto;
+    private String notaFiscal;
 
     @Column(name = "tipo_movimentacao")
     @Enumerated(EnumType.STRING)
@@ -31,5 +31,13 @@ public class MovimentacaoEstoque implements Serializable {
     @Column(name = "origem_movimentacao")
     @Enumerated(EnumType.STRING)
     private OrigemMovimentacao origemMovimentacao;
+
+    @Column(name = "data")
+    private LocalDateTime data;
+
+    @OneToMany(mappedBy = "movimentacaoEstoque", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @Fetch(FetchMode.SUBSELECT)
+    private List<MovimentacaoEstoqueDetalhe> movimentacaoEstoqueDetalhes;
+
 
 }

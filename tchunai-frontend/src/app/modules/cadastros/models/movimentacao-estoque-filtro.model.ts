@@ -1,4 +1,5 @@
 export class MovimentacaoEstoqueFiltroModel {
     id: number;
-    nome: string;
+    notaFiscal: string;
+    data: Date = new Date();
 }
