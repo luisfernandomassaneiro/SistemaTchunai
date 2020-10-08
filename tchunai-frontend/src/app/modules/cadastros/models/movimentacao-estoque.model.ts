@@ -6,7 +6,7 @@ export class MovimentacaoEstoqueModel {
   data: Date = new Date();
   tipoMovimentacao: string;
   origemMovimentacao: string;
-  movimentacaoEstoqueDetalhes: MovimentacaoEstoqueDetalheModel[];
+  movimentacaoEstoqueDetalhes: MovimentacaoEstoqueDetalheModel[] = [];
 }
 
 export class MovimentacaoEstoqueDetalheModel {

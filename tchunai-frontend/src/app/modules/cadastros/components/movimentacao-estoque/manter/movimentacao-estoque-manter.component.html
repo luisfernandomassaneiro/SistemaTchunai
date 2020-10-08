@@ -19,10 +19,58 @@
       </div>
       <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
         <app-form-item label="cadastros.movimentacaoestoque.field.data">
-            <app-date-picker formControlName='data'></app-date-picker>
-          </app-form-item>
+          <app-date-picker formControlName='data'></app-date-picker>
+        </app-form-item>
       </div>
     </div>
+    <nz-divider nzText="Produtos" nzOrientation="left"></nz-divider>
+    <a nz-button nzType="primary" (click)="openModal()" style="margin-bottom: 15px">
+      <span translate="cadastros.movimentacaoestoque.label.add_produto"></span><i nz-icon nzType="plus"></i>
+    </a>
+
+    <nz-table #tbl [nzData]="entity.movimentacaoEstoqueDetalhes" style="margin-top: 15px">
+      <thead *ngIf="entity.movimentacaoEstoqueDetalhes?.length && entity.movimentacaoEstoqueDetalhes?.length > 0">
+        <tr>
+          <th>{{ 'cadastros.movimentacaoestoque.detalhe.label.produto' | translate }}</th>
+          <th>{{ 'cadastros.movimentacaoestoque.detalhe.label.quantidade' | translate }}</th>
+          <th class="center">{{ 'general.labels.actions' | translate }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of entity.movimentacaoEstoqueDetalhes">
+          <td>{{ data.produto.descricao }}</td>
+          <td>{{ data.quantidade }}</td>
+          <td class="actions-column">
+            <ng-container *ngIf="!editCache[data.id].edit; else saveTpl">
+              <button nz-button nzType="default" (click)="startEdit(data.id)"><i nz-icon nzType="edit"></i></button>
+              <button nz-button nzType="danger" (click)="delete(data.id)"><i nz-icon nzType="delete"></i></button>
+            </ng-container>
+            <ng-template #saveTpl>
+              <button nz-button nzType="default" (click)="saveEdit(data.id)"><i nz-icon nzType="save"></i></button>
+              <button nz-button nzType="danger" nz-popconfirm
+                nzTitle="{{'general.messages.confirm_record_cancel' | translate}}"
+                (nzOnConfirm)="cancelEdit(data.id)"><i nz-icon nzType="close"></i></button>
+            </ng-template>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+
+    <nz-modal [(nzVisible)]="isModalVisible" [nzTitle]="'cadastros.movimentacaoestoque.label.add_produto.title' | translate"
+      (nzOnOk)="insereProduto(form.value)" (nzOnCancel)="isModalVisible = false">
+      <form nz-form [formGroup]="produtoForm" *ngIf="form">
+        <nz-form-item class="mb5">
+          <nz-form-label [nzNoColon]="true" [nzRequired]="true">
+            {{ 'cadastro.parceiro.tab.projetos.label.selecione_projeto' | translate }}</nz-form-label>
+          <nz-form-control>
+            <nz-select formControlName="projeto">
+              <nz-option *ngFor="let projeto of projetos" [nzValue]="projeto" [nzLabel]="projeto.nome"></nz-option>
+            </nz-select>
+            <app-control-messages [control]="form.controls.projeto"></app-control-messages>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+    </nz-modal>
     <div class="actions">
       <button nz-button class="btn-salvar" nzType="primary"
         (click)="save(form.value)">{{ 'general.buttons.save' | translate }}</button>

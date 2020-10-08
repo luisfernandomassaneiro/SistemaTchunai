@@ -7,11 +7,12 @@ import { ComparatorUtils } from '@shared/utils/comparator.utils';
 import { BreadCrumbItem } from '@shared/components/layout/page-header.component';
 import { ValidationService } from '@shared/services/validation.service';
 import { MovimentacaoEstoqueService } from '../../../services/movimentacao-estoque.service';
-import { MovimentacaoEstoqueModel } from '../../../models/movimentacao-estoque.model';
-import { ProdutoDominioService } from '@shared/services/domain/cadastros/produto-domain.service';
+import { MovimentacaoEstoqueDetalheModel, MovimentacaoEstoqueModel } from '../../../models/movimentacao-estoque.model';
+import { ProdutoDominioModel, ProdutoDominioService } from '@shared/services/domain/cadastros/produto-domain.service';
 import { TipoMovimentacaoDominioService } from '@shared/services/domain/cadastros/tipo-movimentacao-domain.service';
 import { OrigemMovimentacaoDominioService } from '@shared/services/domain/cadastros/origem-movimentacao-domain.service';
 import { HashService } from '@shared/services/hash.service';
+import { MessagesService, NotificationType } from '@shared/services/message.service';
 
 @Component({
   templateUrl: './movimentacao-estoque-manter.component.html'
@@ -22,9 +23,12 @@ export class MovimentacaoEstoqueManterComponent implements OnInit {
   entity: MovimentacaoEstoqueModel;
   title: string;
   form: FormGroup;
+  produtoForm: FormGroup;
   breadcrumb: BreadCrumbItem[] = [{label: 'menu.home', route: '/'}, {label: 'menu.cadastros.movimentacaoestoque', route: '/cadastros/movimentacaoestoque'}];
   tipoMovimentacaoDomain: string[] = [];
   origemMovimentacaoDomain: string[] = [];
+  isModalVisible: boolean = false;
+  produtos: ProdutoDominioModel[] = []
 
   constructor(
     public produtoService: ProdutoDominioService,
@@ -34,6 +38,7 @@ export class MovimentacaoEstoqueManterComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private hash: HashService,
+    private messageService: MessagesService
 ) {}
 
   ngOnInit(): void {
@@ -56,6 +61,24 @@ export class MovimentacaoEstoqueManterComponent implements OnInit {
       tipoMovimentacao: [this.entity.tipoMovimentacao, []],
       data: [this.entity.data, []],
     });
+  }
+
+  openModal(): void {
+    this.produtoForm.reset();
+    this.isModalVisible = true;
+  }
+
+  insereProduto(model) {
+    if (!ReactiveFormsUtils.eval(this.form)) {
+      return;
+    }
+
+    let movimentacaoEstoqueDetalhe = new MovimentacaoEstoqueDetalheModel();
+    movimentacaoEstoqueDetalhe.produto = model.produto;
+    movimentacaoEstoqueDetalhe.quantidade = model.quantidade;
+    this.entity.movimentacaoEstoqueDetalhes.push(movimentacaoEstoqueDetalhe);
+    this.isModalVisible = false;
+    this.messageService.notifyI18n('cadastros.movimentacaoestoque.mensagem.produto_adicionado', NotificationType.Success);
   }
 
   save(model): void {

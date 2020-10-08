@@ -133,6 +133,11 @@
     "movimentacaoestoque.tipoMovimentacao.values.SAIDA" : "Saída",
     "movimentacaoestoque.field.origemmovimentacao" : "OrigemMovimentacao",
     "movimentacaoestoque.origemMovimentacao.values.ESTOQUE" : "Estoque",
-    "movimentacaoestoque.origemMovimentacao.values.VENDA" : "Venda"
+    "movimentacaoestoque.origemMovimentacao.values.VENDA" : "Venda",
+    "movimentacaoestoque.label.add_produto": "Adicionar produto",
+    "movimentacaoestoque.mensagem.produto_adicionado": "Produto adicionado",
+    "movimentacaoestoque.detalhe.label.produto": "Produto",
+    "movimentacaoestoque.detalhe.label.quantidade": "Quantidade",
+    "movimentacaoestoque.label.add_produto.title": "Produtos"
   }
 }
