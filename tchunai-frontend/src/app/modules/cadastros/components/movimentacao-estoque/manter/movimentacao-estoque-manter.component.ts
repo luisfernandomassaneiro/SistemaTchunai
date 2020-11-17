@@ -44,6 +44,7 @@ export class MovimentacaoEstoqueManterComponent implements OnInit {
   ngOnInit(): void {
 
     this.tipoMovimentacaoService.list().subscribe(list => this.tipoMovimentacaoDomain = list);
+    this.produtoService.list().subscribe(list => this.produtos = list);
 
     this.entity = this.route.snapshot.data.entity || new MovimentacaoEstoqueModel();
     if (this.entity.id) {
@@ -61,6 +62,11 @@ export class MovimentacaoEstoqueManterComponent implements OnInit {
       tipoMovimentacao: [this.entity.tipoMovimentacao, []],
       data: [this.entity.data, []],
     });
+
+    this.produtoForm = this.formBuilder.group({
+      produto: [null, [Validators.required]],
+      quantidade: [null, [Validators.required]]
+    })
   }
 
   openModal(): void {
@@ -92,5 +98,9 @@ export class MovimentacaoEstoqueManterComponent implements OnInit {
 
   back() {
     history.go(-1);
+  }
+
+  delete(movimentacaoEstoqueDetalhe: MovimentacaoEstoqueDetalheModel) {
+    this.entity.movimentacaoEstoqueDetalhes = this.entity.movimentacaoEstoqueDetalhes.filter(med => med !== movimentacaoEstoqueDetalhe);
   }
 }

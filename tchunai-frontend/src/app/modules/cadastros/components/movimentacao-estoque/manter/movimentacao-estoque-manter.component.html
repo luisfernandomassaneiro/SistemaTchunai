@@ -41,32 +41,33 @@
           <td>{{ data.produto.descricao }}</td>
           <td>{{ data.quantidade }}</td>
           <td class="actions-column">
-            <ng-container *ngIf="!editCache[data.id].edit; else saveTpl">
-              <button nz-button nzType="default" (click)="startEdit(data.id)"><i nz-icon nzType="edit"></i></button>
-              <button nz-button nzType="danger" (click)="delete(data.id)"><i nz-icon nzType="delete"></i></button>
+            <ng-container>
+              <button nz-button nzType="danger" (click)="delete(data)"><i nz-icon nzType="delete"></i></button>
             </ng-container>
-            <ng-template #saveTpl>
-              <button nz-button nzType="default" (click)="saveEdit(data.id)"><i nz-icon nzType="save"></i></button>
-              <button nz-button nzType="danger" nz-popconfirm
-                nzTitle="{{'general.messages.confirm_record_cancel' | translate}}"
-                (nzOnConfirm)="cancelEdit(data.id)"><i nz-icon nzType="close"></i></button>
-            </ng-template>
           </td>
         </tr>
       </tbody>
     </nz-table>
 
     <nz-modal [(nzVisible)]="isModalVisible" [nzTitle]="'cadastros.movimentacaoestoque.label.add_produto.title' | translate"
-      (nzOnOk)="insereProduto(form.value)" (nzOnCancel)="isModalVisible = false">
-      <form nz-form [formGroup]="produtoForm" *ngIf="form">
+      (nzOnOk)="insereProduto(produtoForm.value)" (nzOnCancel)="isModalVisible = false">
+      <form nz-form [formGroup]="produtoForm" *ngIf="produtoForm">
         <nz-form-item class="mb5">
           <nz-form-label [nzNoColon]="true" [nzRequired]="true">
-            {{ 'cadastro.parceiro.tab.projetos.label.selecione_projeto' | translate }}</nz-form-label>
+            {{ 'cadastros.movimentacaoestoque.detalhe.label.produto' | translate }}</nz-form-label>
           <nz-form-control>
-            <nz-select formControlName="projeto">
-              <nz-option *ngFor="let projeto of projetos" [nzValue]="projeto" [nzLabel]="projeto.nome"></nz-option>
+            <nz-select formControlName="produto" nzShowSearch nzAllowClear>
+              <nz-option *ngFor="let produto of produtos" [nzValue]="produto" [nzLabel]="produto.descricao"></nz-option>
             </nz-select>
-            <app-control-messages [control]="form.controls.projeto"></app-control-messages>
+            <app-control-messages [control]="produtoForm.controls.produto"></app-control-messages>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item class="mb5">
+          <nz-form-label [nzNoColon]="true" [nzRequired]="true">
+            {{ 'cadastros.movimentacaoestoque.detalhe.label.quantidade' | translate }}</nz-form-label>
+          <nz-form-control>
+            <nz-input-number formControlName="quantidade" [nzMin]="1" [nzStep]="1"></nz-input-number>
+            <app-control-messages [control]="produtoForm.controls.quantidade"></app-control-messages>
           </nz-form-control>
         </nz-form-item>
       </form>

@@ -128,6 +128,7 @@
     "movimentacaoestoque.field.notaFiscal" : "Nota fiscal",
     "movimentacaoestoque.field.data" : "Data",
     "movimentacaoestoque.field.produto" : "Produto",
+    "movimentacaoestoque.field.selecione_produto" : "Selecione o produto",
     "movimentacaoestoque.field.tipomovimentacao" : "Movimentacao",
     "movimentacaoestoque.tipoMovimentacao.values.ENTRADA" : "Entrada",
     "movimentacaoestoque.tipoMovimentacao.values.SAIDA" : "Saída",
