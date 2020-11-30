@@ -1,5 +1,6 @@
 package br.com.senior.tchunai.business.application.cadastros.usecase.movimentacaoestoque;
 
+import br.com.senior.tchunai.business.entity.cadastros.MovimentacaoEstoqueDetalhe;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,9 @@ import br.com.senior.tchunai.business.application.cadastros.dominio.dto.ProdutoD
 import br.com.senior.tchunai.business.entity.cadastros.OrigemMovimentacao;
 import br.com.senior.tchunai.business.entity.cadastros.TipoMovimentacao;
 
+import java.util.Date;
+import java.util.List;
+
 @Getter
 @Setter
 public class UcIncluirMovimentacaoEstoque extends UseCase<MovimentacaoEstoqueDto> {
@@ -21,11 +25,11 @@ public class UcIncluirMovimentacaoEstoque extends UseCase<MovimentacaoEstoqueDto
     @Autowired
     private MovimentacaoEstoqueRepository repository;
 
-    private String nome;
-    @NotNull(message="movimentacaoEstoque.produto.required")
-    private ProdutoDominioDto produto;
+    private Date data;
+    private String notaFiscal;
     private TipoMovimentacao tipoMovimentacao;
     private OrigemMovimentacao origemMovimentacao;
+    private List<MovimentacaoEstoqueDetalhe> movimentacaoEstoqueDetalhes;
     @Override
     protected MovimentacaoEstoqueDto execute() {
         MovimentacaoEstoque dto = map(MovimentacaoEstoqueMapper.class).toMovimentacaoEstoque(this);
