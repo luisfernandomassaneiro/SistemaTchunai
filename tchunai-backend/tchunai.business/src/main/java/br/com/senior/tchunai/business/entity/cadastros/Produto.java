@@ -7,6 +7,7 @@ import org.hibernate.annotations.ColumnDefault;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 @Data
 @Entity
@@ -38,4 +39,18 @@ public class Produto implements Serializable {
     @ColumnDefault("true")
     private boolean active;
 
+    @Column(name = "quantidade_atual")
+    private Integer quantidadeAtual;
+
+    public void alteraQuantidade(TipoMovimentacao tipoMovimentacao, Integer quantidade) {
+        if (Objects.isNull(quantidadeAtual)) {
+            this.quantidadeAtual = 0;
+        }
+
+        if (TipoMovimentacao.ENTRADA.equals(tipoMovimentacao)) {
+            this.quantidadeAtual += quantidade;
+        } else {
+            this.quantidadeAtual -= quantidade;
+        }
+    }
 }

@@ -61,6 +61,7 @@ export class MovimentacaoEstoqueManterComponent implements OnInit {
       notaFiscal: [this.entity.notaFiscal, []],
       tipoMovimentacao: [this.entity.tipoMovimentacao, []],
       data: [this.entity.data, []],
+      
     });
 
     this.produtoForm = this.formBuilder.group({
@@ -79,18 +80,30 @@ export class MovimentacaoEstoqueManterComponent implements OnInit {
       return;
     }
 
-    let movimentacaoEstoqueDetalhe = new MovimentacaoEstoqueDetalheModel();
-    movimentacaoEstoqueDetalhe.produto = model.produto;
-    movimentacaoEstoqueDetalhe.quantidade = model.quantidade;
-    this.entity.movimentacaoEstoqueDetalhes.push(movimentacaoEstoqueDetalhe);
-    this.isModalVisible = false;
+    let movimentacaoEstoqueDetalhe;
+    let movimentacaoEstoqueDetalheProduto;
+    if (this.entity.movimentacaoEstoqueDetalhes && this.entity.movimentacaoEstoqueDetalhes.length > 0) {
+      movimentacaoEstoqueDetalheProduto = this.entity.movimentacaoEstoqueDetalhes.filter(med => med.produto.id === model.produto.id);
+    }
+
+    if (movimentacaoEstoqueDetalheProduto && movimentacaoEstoqueDetalheProduto.length > 0) {
+      movimentacaoEstoqueDetalheProduto[0].quantidade += model.quantidade
+    } else {
+      movimentacaoEstoqueDetalhe = new MovimentacaoEstoqueDetalheModel();
+      movimentacaoEstoqueDetalhe.produto = model.produto;
+      movimentacaoEstoqueDetalhe.quantidade = model.quantidade;
+      this.entity.movimentacaoEstoqueDetalhes.push(movimentacaoEstoqueDetalhe);
+    }
     this.messageService.notifyI18n('cadastros.movimentacaoestoque.mensagem.produto_adicionado', NotificationType.Success);
+    this.produtoForm.reset();
   }
 
   save(model): void {
     if (!ReactiveFormsUtils.eval(this.form)) {
       return;
     }
+
+    model.movimentacaoEstoqueDetalhes = this.entity.movimentacaoEstoqueDetalhes;
     this.service.saveAndNotify(model, model.id).then(() => {
         history.go(-1);
     });

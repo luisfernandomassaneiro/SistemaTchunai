@@ -7,4 +7,5 @@ public class ProdutoResumoDto {
 
     private Long id;
     private String descricao;
+    private Integer quantidadeAtual;
 }

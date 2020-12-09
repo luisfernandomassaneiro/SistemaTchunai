@@ -12,4 +12,5 @@ public class ProdutoDto {
     private Integer percentualLucro;
     private String peso;
     private boolean active;
+    private Integer quantidadeAtual;
 }

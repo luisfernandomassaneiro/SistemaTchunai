@@ -1,6 +1,7 @@
 package br.com.senior.tchunai.business.entity.cadastros;
 
 import br.com.senior.tchunai.lib.generator.annotations.GenHint;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -37,6 +38,7 @@ public class MovimentacaoEstoque implements Serializable {
 
     @OneToMany(mappedBy = "movimentacaoEstoque", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @Fetch(FetchMode.SUBSELECT)
+    @JsonManagedReference
     private List<MovimentacaoEstoqueDetalhe> movimentacaoEstoqueDetalhes;
 
 

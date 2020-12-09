@@ -119,6 +119,7 @@
     "produto.field.precovenda" : "Preco de Venda",
     "produto.field.percentuallucro" : "Percentual de Lucro",
     "produto.field.peso" : "Peso",
+    "produto.field.quantidadeAtual" : "Qtd. Atual",
     "produto.field.active" : "Ativo",
     "movimentacaoestoque.list.title" : "Listagem de Movimentacao do Estoque",
     "movimentacaoestoque.view.title" : "Visualização de Movimentacao do Estoque",

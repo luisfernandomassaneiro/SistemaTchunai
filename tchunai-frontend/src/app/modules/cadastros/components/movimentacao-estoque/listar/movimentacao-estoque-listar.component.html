@@ -25,13 +25,15 @@
         (nzPageSizeChange)="gridWrapper.refresh()">
         <thead (nzSortOrderChange)="gridWrapper.sort($event)">
           <tr *ngIf="gridWrapper.dataset.itens?.length">
-            <th nzShowSort nzColumnKey='nome' [nzSortOrder]="gridWrapper.direction('nome')">{{ 'cadastros.movimentacaoestoque.field.nome' | translate }}</th>
+            <th nzShowSort nzColumnKey='data' [nzSortOrder]="gridWrapper.direction('data')">{{ 'cadastros.movimentacaoestoque.field.data' | translate }}</th>
+            <th nzShowSort nzColumnKey='notaFiscal' [nzSortOrder]="gridWrapper.direction('notaFiscal')">{{ 'cadastros.movimentacaoestoque.field.notaFiscal' | translate }}</th>
             <th class="center">{{ 'general.labels.actions' | translate }}</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let data of gridWrapper.dataset.itens" class="clickable" (click)="view(data)">
-            <td>{{ data.nome }}</td>
+            <td>{{ data.data | date:"dd/MM/yyyy"}}</td>
+            <td>{{ data.notaFiscal }}</td>
             <td class="actions-column" (click)="$event.stopPropagation()">
                 <button class="btn-table-alterar"  nz-button nzType="default" [routerLink]="['../alterar', hash.encode(data.id)]"><i nz-icon nzType="edit"></i></button>
                 <button class="btn-table-excluir"  nz-button nzType="danger" (click)="delete(data)"><i nz-icon nzType="delete"></i></button>

@@ -7,4 +7,5 @@ export class ProdutoModel {
   percentualLucro: number;
   peso: string;
   active: boolean = true;
+  quantidadeAtual: number;
 }

@@ -50,6 +50,7 @@ export class ProdutoManterComponent implements OnInit {
       percentualLucro: [this.entity.percentualLucro, []],
       peso: [this.entity.peso, []],
       active: [this.entity.active, []],
+      quantidadeAtual: [this.entity.quantidadeAtual, []]
     });
   }
 

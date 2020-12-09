@@ -1,5 +1,6 @@
 package br.com.senior.tchunai.business.entity.cadastros;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -17,6 +18,7 @@ public class MovimentacaoEstoqueDetalhe implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "movimento_estoque_id", referencedColumnName = "id", nullable = false)
+    @JsonBackReference
     private MovimentacaoEstoque movimentacaoEstoque;
 
     @ManyToOne
