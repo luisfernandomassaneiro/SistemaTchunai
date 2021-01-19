@@ -84,7 +84,8 @@
     "cadastros" : "Cadastros",
     "cadastros.cliente" : "Clientes",
     "cadastros.produto" : "Produtos",
-    "cadastros.movimentacaoestoque" : "Estoque"
+    "cadastros.movimentacaoestoque" : "Estoque",
+    "cadastros.pedido" : "Pedido"
   },
   "error" : {
     "500.title" : "Erro no servidor",
@@ -136,10 +137,18 @@
     "movimentacaoestoque.field.origemmovimentacao" : "OrigemMovimentacao",
     "movimentacaoestoque.origemMovimentacao.values.ESTOQUE" : "Estoque",
     "movimentacaoestoque.origemMovimentacao.values.VENDA" : "Venda",
-    "movimentacaoestoque.label.add_produto": "Adicionar produto",
-    "movimentacaoestoque.mensagem.produto_adicionado": "Produto adicionado",
-    "movimentacaoestoque.detalhe.label.produto": "Produto",
-    "movimentacaoestoque.detalhe.label.quantidade": "Quantidade",
-    "movimentacaoestoque.label.add_produto.title": "Produtos"
+    "movimentacaoestoque.label.add_produto" : "Adicionar produto",
+    "movimentacaoestoque.mensagem.produto_adicionado" : "Produto adicionado",
+    "movimentacaoestoque.detalhe.label.produto" : "Produto",
+    "movimentacaoestoque.detalhe.label.quantidade" : "Quantidade",
+    "movimentacaoestoque.label.add_produto.title" : "Produtos",
+    "pedido.list.title" : "Listagem de Pedido",
+    "pedido.view.title" : "Visualização de Pedido",
+    "pedido.add.title" : "Inclusão de Pedido",
+    "pedido.edit.title" : "Edição de Pedido",
+    "pedido.field.id" : "Id",
+    "pedido.field.data" : "Data",
+    "pedido.field.cliente" : "Cliente",
+    "pedido.field.valortotal" : "ValorTotal"
   }
 }

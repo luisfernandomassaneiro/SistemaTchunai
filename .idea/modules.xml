@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/SistemaTchunai.iml" filepath="$PROJECT_DIR$/.idea/SistemaTchunai.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tchunai-backend/tchunai.iml" filepath="$PROJECT_DIR$/tchunai-backend/tchunai.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tchunai-backend/tchunai.app/tchunai.app.iml" filepath="$PROJECT_DIR$/tchunai-backend/tchunai.app/tchunai.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tchunai-backend/tchunai.business/tchunai.business.iml" filepath="$PROJECT_DIR$/tchunai-backend/tchunai.business/tchunai.business.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tchunai-backend/tchunai.generator/tchunai.generator.iml" filepath="$PROJECT_DIR$/tchunai-backend/tchunai.generator/tchunai.generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tchunai-backend/tchunai.lib/tchunai.lib.iml" filepath="$PROJECT_DIR$/tchunai-backend/tchunai.lib/tchunai.lib.iml" />
+    </modules>
+  </component>
+</project>

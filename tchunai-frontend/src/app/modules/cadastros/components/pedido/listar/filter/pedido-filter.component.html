@@ -1,0 +1,20 @@
+
+<app-filter-layout [grid]="grid" [size]="3" >
+  <div nz-row [nzGutter]="16">
+    <div nz-col [nzXs]="24" [nzMd]="8">
+      <app-form-item label="cadastros.pedido.field.data">
+        <app-date-picker [(ngModel)]='filtro.data'></app-date-picker>
+      </app-form-item>
+    </div>
+    <div nz-col [nzXs]="24" [nzMd]="8">
+      <app-form-item label="cadastros.pedido.field.cliente">
+        <app-lazy-list [loader]='clienteService' label='nome' [nzPlaceHolder]="'general.labels.all' | translate" [nzAllowClear]='true' [(ngModel)]='filtro.cliente' value='id'></app-lazy-list>
+      </app-form-item>
+    </div>
+    <div nz-col [nzXs]="24" [nzMd]="8">
+      <app-form-item label="cadastros.pedido.field.valortotal">
+        <app-number-input [(ngModel)]='filtro.valorTotal' maxLength='100' decimalLength='2'></app-number-input>
+      </app-form-item>
+    </div>
+  </div>
+</app-filter-layout>

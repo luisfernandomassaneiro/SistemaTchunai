@@ -1,3 +1,8 @@
+import { PedidoService } from './services/pedido.service';
+import { PedidoManterComponent } from './components/pedido/manter/pedido-manter.component';
+import { PedidoFilterComponent } from './components/pedido/listar/filter/pedido-filter.component';
+import { PedidoVisualizarComponent } from './components/pedido/visualizar/pedido-visualizar.component';
+import { PedidoListarComponent } from './components/pedido/listar/pedido-listar.component';
 import { MovimentacaoEstoqueService } from './services/movimentacao-estoque.service';
 import { MovimentacaoEstoqueManterComponent } from './components/movimentacao-estoque/manter/movimentacao-estoque-manter.component';
 import { MovimentacaoEstoqueFilterComponent } from './components/movimentacao-estoque/listar/filter/movimentacao-estoque-filter.component';
@@ -31,7 +36,11 @@ import { CadastrosRoutes } from './cadastros.routes';
     MovimentacaoEstoqueListarComponent,
     MovimentacaoEstoqueVisualizarComponent,
     MovimentacaoEstoqueFilterComponent,
-    MovimentacaoEstoqueManterComponent
+    MovimentacaoEstoqueManterComponent,
+    PedidoListarComponent,
+    PedidoVisualizarComponent,
+    PedidoFilterComponent,
+    PedidoManterComponent
   ],
   imports: [
     SharedModule,
@@ -40,7 +49,8 @@ import { CadastrosRoutes } from './cadastros.routes';
   providers: [
     ClienteService,
     ProdutoService,
-    MovimentacaoEstoqueService
+    MovimentacaoEstoqueService,
+    PedidoService
   ],
   entryComponents: [
   ],

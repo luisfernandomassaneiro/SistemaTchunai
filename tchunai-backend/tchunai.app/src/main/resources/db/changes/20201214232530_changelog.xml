@@ -1,0 +1,46 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="nando (generated)" id="1607988338465-1">
+        <createTable tableName="pedido">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pedidoPK"/>
+            </column>
+            <column name="data" type="datetime"/>
+            <column name="valor_total" type="DECIMAL(19, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cliente_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="nando (generated)" id="1607988338465-2">
+        <createTable tableName="pedido_detalhe">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pedido_detalhePK"/>
+            </column>
+            <column name="quantidade" type="INT"/>
+            <column name="valor" type="DECIMAL(19, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="valor_compra" type="DECIMAL(19, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pedido_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="produto_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="nando (generated)" id="1607988338465-3">
+        <addForeignKeyConstraint baseColumnNames="cliente_id" baseTableName="pedido" constraintName="FK30s8j2ktpay6of18lbyqn3632" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="cliente" validate="true"/>
+    </changeSet>
+    <changeSet author="nando (generated)" id="1607988338465-4">
+        <addForeignKeyConstraint baseColumnNames="produto_id" baseTableName="pedido_detalhe" constraintName="FKa4w8gd6b6ly4bcepmma3v5bw0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="produto" validate="true"/>
+    </changeSet>
+    <changeSet author="nando (generated)" id="1607988338465-5">
+        <addForeignKeyConstraint baseColumnNames="pedido_id" baseTableName="pedido_detalhe" constraintName="FKfg5s2jmu5ogm52bbqu1req9b" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="pedido" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

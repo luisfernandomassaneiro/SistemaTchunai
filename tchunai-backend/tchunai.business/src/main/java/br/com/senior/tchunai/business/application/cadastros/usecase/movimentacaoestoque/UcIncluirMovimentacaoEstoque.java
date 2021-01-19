@@ -48,6 +48,7 @@ public class UcIncluirMovimentacaoEstoque extends UseCase<MovimentacaoEstoqueDto
         movimentacaoEstoque.setOrigemMovimentacao(OrigemMovimentacao.ESTOQUE);
         repository.save(movimentacaoEstoque);
         produtoRepository.saveAll(produtoList);
+
         return map(MovimentacaoEstoqueMapper.class).toMovimentacaoEstoqueDto(movimentacaoEstoque);
     }
 }

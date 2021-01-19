@@ -84,7 +84,8 @@
     "cadastros" : "Cadastros",
     "cadastros.cliente" : "Cliente",
     "cadastros.produto" : "Produto",
-    "cadastros.movimentacaoestoque" : "Movimentacaoestoque"
+    "cadastros.movimentacaoestoque" : "Movimentacaoestoque",
+    "cadastros.pedido" : "Pedido"
   },
   "error" : {
     "500.title" : "Server error",
@@ -132,6 +133,14 @@
     "movimentacaoestoque.tipoMovimentacao.values.SAIDA" : "SAIDA",
     "movimentacaoestoque.field.origemmovimentacao" : "OrigemMovimentacao",
     "movimentacaoestoque.origemMovimentacao.values.ESTOQUE" : "ESTOQUE",
-    "movimentacaoestoque.origemMovimentacao.values.VENDA" : "VENDA"
+    "movimentacaoestoque.origemMovimentacao.values.VENDA" : "VENDA",
+    "pedido.list.title" : "Pedido Listing",
+    "pedido.view.title" : "View Pedido",
+    "pedido.add.title" : "New Pedido",
+    "pedido.edit.title" : "Pedido Update",
+    "pedido.field.id" : "Id",
+    "pedido.field.data" : "Data",
+    "pedido.field.cliente" : "Cliente",
+    "pedido.field.valortotal" : "ValorTotal"
   }
 }

@@ -1,3 +1,7 @@
+import { PedidoManterComponent } from './components/pedido/manter/pedido-manter.component';
+import { PedidoService } from './services/pedido.service';
+import { PedidoVisualizarComponent } from './components/pedido/visualizar/pedido-visualizar.component';
+import { PedidoListarComponent } from './components/pedido/listar/pedido-listar.component';
 import { MovimentacaoEstoqueManterComponent } from './components/movimentacao-estoque/manter/movimentacao-estoque-manter.component';
 import { MovimentacaoEstoqueService } from './services/movimentacao-estoque.service';
 import { MovimentacaoEstoqueVisualizarComponent } from './components/movimentacao-estoque/visualizar/movimentacao-estoque-visualizar.component';
@@ -88,6 +92,32 @@ const ROUTES = [
       {
         path: 'incluir',
         component: MovimentacaoEstoqueManterComponent
+      } ]
+  },
+  {
+    path: 'pedido',
+    children: [
+      {
+        path: '',
+        component: PedidoListarComponent
+      },
+      {
+        path: 'visualizar/:id',
+        resolve: {
+          entity: PedidoService
+        },
+        component: PedidoVisualizarComponent
+      },
+      {
+        path: 'alterar/:id',
+        resolve: {
+          entity: PedidoService
+        },
+        component: PedidoManterComponent
+      },
+      {
+        path: 'incluir',
+        component: PedidoManterComponent
       } ]
   }
 ];

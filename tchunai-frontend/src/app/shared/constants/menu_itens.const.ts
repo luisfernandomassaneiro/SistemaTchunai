@@ -27,5 +27,11 @@ export const navItems = [ {
     link : '/cadastros/movimentacaoestoque',
     i18n : 'menu.cadastros.movimentacaoestoque',
     icon: 'fas fa-exchange-alt'
+  }, {
+    key : 'cadastros.pedido',
+    text : 'Pedido',
+    link : '/cadastros/pedido',
+    i18n : 'menu.cadastros.pedido',
+    icon: 'anticonanticon-file-add'
   }]
 } ];

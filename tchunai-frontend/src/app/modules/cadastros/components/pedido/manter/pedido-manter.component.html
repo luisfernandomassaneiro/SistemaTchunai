@@ -1,0 +1,78 @@
+<app-page-header [title]="title" [breabcrumb]="breadcrumb"></app-page-header>
+
+<nz-card>
+  <form nz-form [formGroup]="form" nzLayout="vertical">
+      <div nz-row nzGutter="16">
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+              <app-form-item label="cadastros.pedido.field.data" controlName="data" [required]="true">
+                  <app-date-picker formControlName='data'></app-date-picker>
+              </app-form-item>
+          </div>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+              <app-form-item label="cadastros.pedido.field.cliente" controlName="cliente" [required]="true">
+                  <app-lazy-list [loader]='clienteService' label='nome' [nzPlaceHolder]="'general.labels.select' | translate" [nzAllowClear]='true' formControlName='cliente' [compareWith]='comparator.compare("id")'></app-lazy-list>
+              </app-form-item>
+          </div>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+              <app-form-item label="cadastros.pedido.field.valortotal" controlName="valorTotal" [required]="true">
+                <input currencyMask nz-input type="text" formControlName='valorTotal' disabled
+                    [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', align: 'left' }" />
+              </app-form-item>
+          </div>
+      </div>
+
+      <nz-divider nzText="Produtos" nzOrientation="left"></nz-divider>
+    <a nz-button nzType="primary" (click)="openModal()" style="margin-bottom: 15px">
+      <span translate="cadastros.movimentacaoestoque.label.add_produto"></span><i nz-icon nzType="plus"></i>
+    </a>
+
+    <nz-table #tbl [nzData]="entity.pedidoDetalhes" style="margin-top: 15px">
+      <thead *ngIf="entity.pedidoDetalhes?.length && entity.pedidoDetalhes?.length > 0">
+        <tr>
+          <th>{{ 'cadastros.movimentacaoestoque.detalhe.label.produto' | translate }}</th>
+          <th>{{ 'cadastros.movimentacaoestoque.detalhe.label.quantidade' | translate }}</th>
+          <th class="center">{{ 'general.labels.actions' | translate }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of entity.pedidoDetalhes">
+          <td>{{ data.produto.descricao }}</td>
+          <td>{{ data.quantidade }}</td>
+          <td class="actions-column">
+            <ng-container>
+              <button nz-button nzType="danger" (click)="delete(data)"><i nz-icon nzType="delete"></i></button>
+            </ng-container>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+    
+      <nz-modal [(nzVisible)]="isModalVisible" [nzTitle]="'cadastros.movimentacaoestoque.label.add_produto.title' | translate"
+      (nzOnOk)="insereProduto(produtoForm.value)" (nzOnCancel)="isModalVisible = false">
+      <form nz-form [formGroup]="produtoForm" *ngIf="produtoForm">
+        <nz-form-item class="mb5">
+          <nz-form-label [nzNoColon]="true" [nzRequired]="true">
+            {{ 'cadastros.movimentacaoestoque.detalhe.label.produto' | translate }}</nz-form-label>
+          <nz-form-control>
+            <nz-select formControlName="produto" nzShowSearch nzAllowClear>
+              <nz-option *ngFor="let produto of produtos" [nzValue]="produto" [nzLabel]="produto.descricao"></nz-option>
+            </nz-select>
+            <app-control-messages [control]="produtoForm.controls.produto"></app-control-messages>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item class="mb5">
+          <nz-form-label [nzNoColon]="true" [nzRequired]="true">
+            {{ 'cadastros.movimentacaoestoque.detalhe.label.quantidade' | translate }}</nz-form-label>
+          <nz-form-control>
+            <nz-input-number formControlName="quantidade" [nzMin]="1" [nzStep]="1"></nz-input-number>
+            <app-control-messages [control]="produtoForm.controls.quantidade"></app-control-messages>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+    </nz-modal>
+      <div class="actions">
+          <button nz-button class="btn-salvar" nzType="primary" (click)="save(form.value)">{{ 'general.buttons.save' | translate }}</button>
+          <button nz-button class="btn-voltar" nzType="default" (click)="back()">{{ 'general.buttons.back' | translate }}</button>
+      </div>
+  </form>
+</nz-card>
