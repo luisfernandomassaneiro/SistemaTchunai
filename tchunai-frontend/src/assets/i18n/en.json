@@ -85,7 +85,11 @@
     "cadastros.cliente" : "Cliente",
     "cadastros.produto" : "Produto",
     "cadastros.movimentacaoestoque" : "Movimentacaoestoque",
-    "cadastros.pedido" : "Pedido"
+    "cadastros.pedido" : "Pedido",
+    "cadastros.categoria" : "Categoria",
+    "cadastros.cor" : "Cor",
+    "cadastros.marca" : "Marca",
+    "cadastros.tamanho" : "Tamanho"
   },
   "error" : {
     "500.title" : "Server error",
@@ -141,6 +145,30 @@
     "pedido.field.id" : "Id",
     "pedido.field.data" : "Data",
     "pedido.field.cliente" : "Cliente",
-    "pedido.field.valortotal" : "ValorTotal"
+    "pedido.field.valortotal" : "ValorTotal",
+    "categoria.list.title" : "Categoria Listing",
+    "categoria.view.title" : "View Categoria",
+    "categoria.add.title" : "New Categoria",
+    "categoria.edit.title" : "Categoria Update",
+    "categoria.field.id" : "Id",
+    "categoria.field.descricao" : "Descricao",
+    "cor.list.title" : "Cor Listing",
+    "cor.view.title" : "View Cor",
+    "cor.add.title" : "New Cor",
+    "cor.edit.title" : "Cor Update",
+    "cor.field.id" : "Id",
+    "cor.field.descricao" : "Descricao",
+    "marca.list.title" : "Marca Listing",
+    "marca.view.title" : "View Marca",
+    "marca.add.title" : "New Marca",
+    "marca.edit.title" : "Marca Update",
+    "marca.field.id" : "Id",
+    "marca.field.descricao" : "Descricao",
+    "tamanho.list.title" : "Tamanho Listing",
+    "tamanho.view.title" : "View Tamanho",
+    "tamanho.add.title" : "New Tamanho",
+    "tamanho.edit.title" : "Tamanho Update",
+    "tamanho.field.id" : "Id",
+    "tamanho.field.descricao" : "Descricao"
   }
 }

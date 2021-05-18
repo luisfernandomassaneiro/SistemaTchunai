@@ -1,0 +1,64 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="nando (generated)" id="1621298810457-1">
+        <createTable tableName="categoria">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="categoriaPK"/>
+            </column>
+            <column name="descricao" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="nando (generated)" id="1621298810457-2">
+        <createTable tableName="cor">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="corPK"/>
+            </column>
+            <column name="descricao" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="nando (generated)" id="1621298810457-3">
+        <createTable tableName="marca">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="marcaPK"/>
+            </column>
+            <column name="descricao" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="nando (generated)" id="1621298810457-4">
+        <createTable tableName="tamanho">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="tamanhoPK"/>
+            </column>
+            <column name="descricao" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="nando (generated)" id="1621298810457-5">
+        <addColumn tableName="produto">
+            <column name="categoria_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="nando (generated)" id="1621298810457-6">
+        <addColumn tableName="produto">
+            <column name="codigo_barras" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="nando (generated)" id="1621298810457-7">
+        <addColumn tableName="produto">
+            <column name="cor_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="nando (generated)" id="1621298810457-8">
+        <addColumn tableName="produto">
+            <column name="marca_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="nando (generated)" id="1621298810457-9">
+        <addForeignKeyConstraint baseColumnNames="cor_id" baseTableName="produto" constraintName="FK6meoj4aaywchbrreafbdbuoum" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="cor" validate="true"/>
+    </changeSet>
+    <changeSet author="nando (generated)" id="1621298810457-10">
+        <addForeignKeyConstraint baseColumnNames="marca_id" baseTableName="produto" constraintName="FKjwfodivt9e04sad1s7u0ya4jq" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="marca" validate="true"/>
+    </changeSet>
+    <changeSet author="nando (generated)" id="1621298810457-11">
+        <addForeignKeyConstraint baseColumnNames="categoria_id" baseTableName="produto" constraintName="FKopu9jggwnamfv0c8k2ri3kx0a" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="categoria" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

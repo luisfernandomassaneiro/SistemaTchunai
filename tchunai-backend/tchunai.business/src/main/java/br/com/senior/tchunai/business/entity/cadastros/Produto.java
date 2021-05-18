@@ -42,6 +42,25 @@ public class Produto implements Serializable {
     @Column(name = "quantidade_atual")
     private Integer quantidadeAtual;
 
+    @ManyToOne
+    @JoinColumn(name="categoria_id")
+    private Categoria categoria;
+
+    @ManyToOne
+    @JoinColumn(name="marca_id")
+    private Marca marca;
+
+    @ManyToOne
+    @JoinColumn(name="cor_id")
+    private Cor cor;
+
+    @ManyToOne
+    @JoinColumn(name="tamanho_id")
+    private Tamanho tamanho;
+
+    @Column(name = "codigo_barras")
+    private String codigoBarras;
+
     public void alteraQuantidade(TipoMovimentacao tipoMovimentacao, Integer quantidade) {
         if (Objects.isNull(quantidadeAtual)) {
             this.quantidadeAtual = 0;

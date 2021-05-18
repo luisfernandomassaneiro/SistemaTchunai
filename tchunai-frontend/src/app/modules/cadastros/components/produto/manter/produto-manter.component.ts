@@ -9,6 +9,10 @@ import { ValidationService } from '@shared/services/validation.service';
 import { ProdutoService } from '../../../services/produto.service';
 import { ProdutoModel } from '../../../models/produto.model';
 import { HashService } from '@shared/services/hash.service';
+import { CorDominioService } from '@shared/services/domain/cadastros/cor-domain.service';
+import { TamanhoDominioService } from '@shared/services/domain/cadastros/tamanho-domain.service';
+import { CategoriaDominioService } from '@shared/services/domain/cadastros/categoria-domain.service';
+import { MarcaDominioService } from '@shared/services/domain/cadastros/marca-domain.service';
 
 @Component({
   templateUrl: './produto-manter.component.html'
@@ -27,6 +31,10 @@ export class ProdutoManterComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private hash: HashService,
+    public corService: CorDominioService,
+    public categoriaService: CategoriaDominioService,
+    public tamanhoService: TamanhoDominioService,
+    public marcaService: MarcaDominioService
 ) {}
 
   ngOnInit(): void {
@@ -50,7 +58,12 @@ export class ProdutoManterComponent implements OnInit {
       percentualLucro: [this.entity.percentualLucro, []],
       peso: [this.entity.peso, []],
       active: [this.entity.active, []],
-      quantidadeAtual: [this.entity.quantidadeAtual, []]
+      quantidadeAtual: [this.entity.quantidadeAtual, []],
+      cor: [this.entity.cor, []],
+      marca: [this.entity.marca, []],
+      tamanho: [this.entity.tamanho, []],
+      categoria: [this.entity.categoria, []],
+      codigoBarras: [this.entity.codigoBarras, []]
     });
   }
 

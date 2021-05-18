@@ -1,3 +1,19 @@
+import { TamanhoManterComponent } from './components/tamanho/manter/tamanho-manter.component';
+import { TamanhoService } from './services/tamanho.service';
+import { TamanhoVisualizarComponent } from './components/tamanho/visualizar/tamanho-visualizar.component';
+import { TamanhoListarComponent } from './components/tamanho/listar/tamanho-listar.component';
+import { MarcaManterComponent } from './components/marca/manter/marca-manter.component';
+import { MarcaService } from './services/marca.service';
+import { MarcaVisualizarComponent } from './components/marca/visualizar/marca-visualizar.component';
+import { MarcaListarComponent } from './components/marca/listar/marca-listar.component';
+import { CorManterComponent } from './components/cor/manter/cor-manter.component';
+import { CorService } from './services/cor.service';
+import { CorVisualizarComponent } from './components/cor/visualizar/cor-visualizar.component';
+import { CorListarComponent } from './components/cor/listar/cor-listar.component';
+import { CategoriaManterComponent } from './components/categoria/manter/categoria-manter.component';
+import { CategoriaService } from './services/categoria.service';
+import { CategoriaVisualizarComponent } from './components/categoria/visualizar/categoria-visualizar.component';
+import { CategoriaListarComponent } from './components/categoria/listar/categoria-listar.component';
 import { PedidoManterComponent } from './components/pedido/manter/pedido-manter.component';
 import { PedidoService } from './services/pedido.service';
 import { PedidoVisualizarComponent } from './components/pedido/visualizar/pedido-visualizar.component';
@@ -118,6 +134,110 @@ const ROUTES = [
       {
         path: 'incluir',
         component: PedidoManterComponent
+      } ]
+  },
+  {
+    path: 'categoria',
+    children: [
+      {
+        path: '',
+        component: CategoriaListarComponent
+      },
+      {
+        path: 'visualizar/:id',
+        resolve: {
+          entity: CategoriaService
+        },
+        component: CategoriaVisualizarComponent
+      },
+      {
+        path: 'alterar/:id',
+        resolve: {
+          entity: CategoriaService
+        },
+        component: CategoriaManterComponent
+      },
+      {
+        path: 'incluir',
+        component: CategoriaManterComponent
+      } ]
+  },
+  {
+    path: 'cor',
+    children: [
+      {
+        path: '',
+        component: CorListarComponent
+      },
+      {
+        path: 'visualizar/:id',
+        resolve: {
+          entity: CorService
+        },
+        component: CorVisualizarComponent
+      },
+      {
+        path: 'alterar/:id',
+        resolve: {
+          entity: CorService
+        },
+        component: CorManterComponent
+      },
+      {
+        path: 'incluir',
+        component: CorManterComponent
+      } ]
+  },
+  {
+    path: 'marca',
+    children: [
+      {
+        path: '',
+        component: MarcaListarComponent
+      },
+      {
+        path: 'visualizar/:id',
+        resolve: {
+          entity: MarcaService
+        },
+        component: MarcaVisualizarComponent
+      },
+      {
+        path: 'alterar/:id',
+        resolve: {
+          entity: MarcaService
+        },
+        component: MarcaManterComponent
+      },
+      {
+        path: 'incluir',
+        component: MarcaManterComponent
+      } ]
+  },
+  {
+    path: 'tamanho',
+    children: [
+      {
+        path: '',
+        component: TamanhoListarComponent
+      },
+      {
+        path: 'visualizar/:id',
+        resolve: {
+          entity: TamanhoService
+        },
+        component: TamanhoVisualizarComponent
+      },
+      {
+        path: 'alterar/:id',
+        resolve: {
+          entity: TamanhoService
+        },
+        component: TamanhoManterComponent
+      },
+      {
+        path: 'incluir',
+        component: TamanhoManterComponent
       } ]
   }
 ];

@@ -37,11 +37,38 @@
                 <nz-input-number formControlName="quantidadeAtual" [nzMin]="1" [nzStep]="1"></nz-input-number>
             </app-form-item>
         </div>
+        <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+            <app-form-item label="cadastros.produto.field.codigoBarras" controlName="codigoBarras">
+                <input nz-input type="text" formControlName='codigoBarras' [maxLength]='255'/>
+            </app-form-item>
+        </div>
           <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
               <app-form-item label="cadastros.produto.field.active" controlName="active">
                   <label nz-checkbox formControlName='active'></label>
               </app-form-item>
           </div>
+      </div>
+      <div nz-row nzGutter="16">
+        <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+            <app-form-item label="cadastros.produto.field.categoria" controlName="categoria">
+                <app-lazy-list [loader]='categoriaService' label='descricao' [nzPlaceHolder]="'general.labels.select' | translate" [nzAllowClear]='true' formControlName='categoria' [compareWith]='comparator.compare("id")'></app-lazy-list>
+            </app-form-item>
+        </div>
+        <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+            <app-form-item label="cadastros.produto.field.marca" controlName="marca">
+                <app-lazy-list [loader]='marcaService' label='descricao' [nzPlaceHolder]="'general.labels.select' | translate" [nzAllowClear]='true' formControlName='marca' [compareWith]='comparator.compare("id")'></app-lazy-list>
+            </app-form-item>
+        </div>
+        <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+            <app-form-item label="cadastros.produto.field.tamanho" controlName="tamanho">
+                <app-lazy-list [loader]='tamanhoService' label='descricao' [nzPlaceHolder]="'general.labels.select' | translate" [nzAllowClear]='true' formControlName='tamanho' [compareWith]='comparator.compare("id")'></app-lazy-list>
+            </app-form-item>
+        </div>
+        <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+            <app-form-item label="cadastros.produto.field.cor" controlName="cor">
+                <app-lazy-list [loader]='corService' label='descricao' [nzPlaceHolder]="'general.labels.select' | translate" [nzAllowClear]='true' formControlName='cor' [compareWith]='comparator.compare("id")'></app-lazy-list>
+            </app-form-item>
+        </div>
       </div>
       <div class="actions">
           <button nz-button class="btn-salvar" nzType="primary" (click)="save(form.value)">{{ 'general.buttons.save' | translate }}</button>
