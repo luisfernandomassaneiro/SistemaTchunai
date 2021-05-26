@@ -53,15 +53,19 @@ export class PedidoManterComponent implements OnInit {
 
     this.form = this.formBuilder.group({
       id: [this.entity.id, []],
-      data: [this.entity.data, [Validators.required]],
-      cliente: [this.entity.cliente, [Validators.required, ]],
+      data: [this.entity.data ? this.entity.data : new Date(), [Validators.required]],
+      cliente: [this.entity.cliente, []],
       valorTotal: [this.entity.valorTotal, []],
     });
 
+    this.inicializaProdutoForm();
+  }
+
+  inicializaProdutoForm() {
     this.produtoForm = this.formBuilder.group({
       produto: [null, [Validators.required]],
-      quantidade: [null, [Validators.required]]
-    })
+      quantidade: [1, [Validators.required]]
+    });
   }
 
   save(model): void {
@@ -78,7 +82,7 @@ export class PedidoManterComponent implements OnInit {
   }
 
   openModal(): void {
-    this.produtoForm.reset();
+    this.inicializaProdutoForm();
     this.isModalVisible = true;
   }
 
@@ -103,7 +107,7 @@ export class PedidoManterComponent implements OnInit {
       this.entity.pedidoDetalhes.push(pedidoDetalhes);
     }
     this.messageService.notifyI18n('cadastros.movimentacaoestoque.mensagem.produto_adicionado', NotificationType.Success);
-    this.produtoForm.reset();
+    this.inicializaProdutoForm();
   }
 
   delete(pedidoDetalhes: PedidoDetalheModel) {

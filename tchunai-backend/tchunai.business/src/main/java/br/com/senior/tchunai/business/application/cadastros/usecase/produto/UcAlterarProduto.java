@@ -28,6 +28,7 @@ public class UcAlterarProduto extends IdentifiedUseCase<ProdutoDto, Long> {
     private Integer percentualLucro;
     private String peso;
     private boolean active;
+    private Integer quantidadeAtual;
     private CorDominioDto cor;
     private CategoriaDominioDto categoria;
     private MarcaDominioDto marca;

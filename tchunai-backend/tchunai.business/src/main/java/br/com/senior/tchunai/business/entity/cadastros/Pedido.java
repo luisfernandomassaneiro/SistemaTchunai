@@ -28,7 +28,7 @@ public class Pedido implements Serializable {
 
     @GenHint(listing = true)
     @OneToOne
-    @JoinColumn(name="cliente_id", nullable = false)
+    @JoinColumn(name="cliente_id")
     private Cliente cliente;
 
     @GenHint(listing = true)

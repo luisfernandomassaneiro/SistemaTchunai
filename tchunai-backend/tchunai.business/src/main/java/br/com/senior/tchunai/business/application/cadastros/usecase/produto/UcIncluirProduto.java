@@ -24,6 +24,7 @@ public class UcIncluirProduto extends UseCase<ProdutoDto> {
     private BigDecimal precoVenda;
     private Integer percentualLucro;
     private String peso;
+    private Integer quantidadeAtual;
     private boolean active;
     private CorDominioDto cor;
     private CategoriaDominioDto categoria;

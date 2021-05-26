@@ -113,6 +113,7 @@
     "cliente.field.endereco" : "Endereco",
     "cliente.field.telefone" : "Telefone",
     "cliente.field.email" : "Email",
+    "cliente.field.dataNascimento" : "Data de Nascimento",
     "cliente.field.active" : "Ativo",
     "produto.list.title" : "Listagem de Produto",
     "produto.view.title" : "Visualização de Produto",

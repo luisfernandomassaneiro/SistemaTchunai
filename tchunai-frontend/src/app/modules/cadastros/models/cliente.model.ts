@@ -5,5 +5,6 @@ export class ClienteModel {
   endereco: string;
   telefone: string;
   email: string;
+  dataNascimento: Date;
   active: boolean = true;
 }

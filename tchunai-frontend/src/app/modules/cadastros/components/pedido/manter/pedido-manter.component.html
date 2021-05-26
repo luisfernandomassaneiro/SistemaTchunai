@@ -9,7 +9,7 @@
               </app-form-item>
           </div>
           <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
-              <app-form-item label="cadastros.pedido.field.cliente" controlName="cliente" [required]="true">
+              <app-form-item label="cadastros.pedido.field.cliente" controlName="cliente">
                   <app-lazy-list [loader]='clienteService' label='nome' [nzPlaceHolder]="'general.labels.select' | translate" [nzAllowClear]='true' formControlName='cliente' [compareWith]='comparator.compare("id")'></app-lazy-list>
               </app-form-item>
           </div>

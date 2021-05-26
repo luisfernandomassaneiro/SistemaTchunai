@@ -55,7 +55,7 @@ export class ProdutoManterComponent implements OnInit {
       descricao: [this.entity.descricao, []],
       precoCusto: [this.entity.precoCusto, []],
       precoVenda: [this.entity.precoVenda, []],
-      percentualLucro: [this.entity.percentualLucro, []],
+      percentualLucro: [this.entity.percentualLucro ? this.entity.percentualLucro : 100, []],
       peso: [this.entity.peso, []],
       active: [this.entity.active, []],
       quantidadeAtual: [this.entity.quantidadeAtual, []],
@@ -78,5 +78,14 @@ export class ProdutoManterComponent implements OnInit {
 
   back() {
     history.go(-1);
+  }
+
+  calculaValorVenda() {
+    let percentualLucro = this.form.get('percentualLucro').value;
+    let precoCusto = this.form.get('precoCusto').value;
+    if (precoCusto && percentualLucro) {
+      let precoVenda = ((percentualLucro/100) * precoCusto) + precoCusto;
+      this.form.get('precoVenda').setValue(precoVenda);
+    }
   }
 }

@@ -29,8 +29,14 @@ export const navItems = [ {
     icon : 'fas fa-exchange-alt'
   }, {
     key : 'cadastros.pedido',
-    text : 'Pedido',
+    text : 'Novo Pedido',
     link : '/cadastros/pedido',
+    i18n : 'menu.cadastros.pedido',
+    icon : 'anticonanticon-file'
+  }, {
+    key : 'cadastros.pedido',
+    text : 'Pedido',
+    link : '/cadastros/pedido/incluir',
     i18n : 'menu.cadastros.pedido',
     icon : 'anticonanticon-file-add'
   }, {

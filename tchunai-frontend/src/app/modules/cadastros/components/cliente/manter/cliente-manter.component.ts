@@ -48,6 +48,7 @@ export class ClienteManterComponent implements OnInit {
       endereco: [this.entity.endereco, []],
       telefone: [this.entity.telefone, []],
       email: [this.entity.email, [ValidationService.email]],
+      dataNascimento: [this.entity.dataNascimento, []],
       active: [this.entity.active, []],
     });
   }

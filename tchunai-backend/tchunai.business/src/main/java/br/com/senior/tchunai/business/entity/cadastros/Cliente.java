@@ -6,6 +6,7 @@ import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 
 @Data
 @Entity
@@ -29,6 +30,9 @@ public class Cliente implements Serializable {
 
     @Column(name = "email")
     private String email;
+
+    @Column(name = "data_nascimento")
+    private LocalDate dataNascimento;
 
     @Column(name = "ativo")
     @ColumnDefault("true")

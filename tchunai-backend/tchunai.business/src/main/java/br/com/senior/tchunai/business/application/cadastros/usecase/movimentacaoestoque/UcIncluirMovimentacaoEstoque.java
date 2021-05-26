@@ -39,8 +39,9 @@ public class UcIncluirMovimentacaoEstoque extends UseCase<MovimentacaoEstoqueDto
         if (!movimentacaoEstoque.getMovimentacaoEstoqueDetalhes().isEmpty()) {
             movimentacaoEstoque.getMovimentacaoEstoqueDetalhes().forEach(movimentacaoEstoqueDetalhe -> {
                 movimentacaoEstoqueDetalhe.setMovimentacaoEstoque(movimentacaoEstoque);
-                movimentacaoEstoqueDetalhe.getProduto().alteraQuantidade(movimentacaoEstoque.getTipoMovimentacao(), movimentacaoEstoqueDetalhe.getQuantidade());
-                produtoList.add(movimentacaoEstoqueDetalhe.getProduto());
+                Produto produto = produtoRepository.require(movimentacaoEstoqueDetalhe.getProduto().getId());
+                produto.alteraQuantidade(movimentacaoEstoque.getTipoMovimentacao(), movimentacaoEstoqueDetalhe.getQuantidade());
+                produtoList.add(produto);
             });
         } else {
             throw new BusinessException("general.message.estoque.produtos_obrigatorios");

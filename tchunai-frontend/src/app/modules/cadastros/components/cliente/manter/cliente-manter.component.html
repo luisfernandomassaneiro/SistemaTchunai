@@ -26,6 +26,11 @@
             <input nz-input type="text" formControlName='email' [maxLength]='255' />
           </app-form-item>
         </div>
+        <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="12">
+          <app-form-item label="cadastros.cliente.field.dataNascimento" controlName="dataNascimento" [required]="true">
+              <app-date-picker formControlName='dataNascimento'></app-date-picker>
+          </app-form-item>
+      </div>
       </div>
     <div nz-row nzGutter="16">
       <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
