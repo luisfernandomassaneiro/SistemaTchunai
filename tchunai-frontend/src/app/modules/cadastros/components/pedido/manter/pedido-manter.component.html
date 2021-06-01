@@ -2,29 +2,53 @@
 
 <nz-card>
   <form nz-form [formGroup]="form" nzLayout="vertical">
-      <div nz-row nzGutter="16">
-          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
-              <app-form-item label="cadastros.pedido.field.data" controlName="data" [required]="true">
-                  <app-date-picker formControlName='data'></app-date-picker>
-              </app-form-item>
-          </div>
-          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
-              <app-form-item label="cadastros.pedido.field.cliente" controlName="cliente">
-                  <app-lazy-list [loader]='clienteService' label='nome' [nzPlaceHolder]="'general.labels.select' | translate" [nzAllowClear]='true' formControlName='cliente' [compareWith]='comparator.compare("id")'></app-lazy-list>
-              </app-form-item>
-          </div>
-          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
-              <app-form-item label="cadastros.pedido.field.valortotal" controlName="valorTotal" [required]="true">
-                <input currencyMask nz-input type="text" formControlName='valorTotal' disabled
-                    [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', align: 'left' }" />
-              </app-form-item>
-          </div>
+    <div nz-row nzGutter="16">
+      <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+        <app-form-item label="cadastros.pedido.field.data" controlName="data" [required]="true">
+          <app-date-picker formControlName='data'></app-date-picker>
+        </app-form-item>
       </div>
+      <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+        <app-form-item label="cadastros.pedido.field.cliente" controlName="cliente">
+          <app-lazy-list [loader]='clienteService' label='nome' [nzPlaceHolder]="'general.labels.select' | translate"
+            [nzAllowClear]='true' formControlName='cliente' [compareWith]='comparator.compare("id")'></app-lazy-list>
+        </app-form-item>
+      </div>
+      <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+        <app-form-item label="cadastros.pedido.field.valortotal" controlName="valorTotal">
+          <input currencyMask nz-input type="text" formControlName='valorTotal' disabled nzDisabled
+            [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', align: 'left' }" />
+        </app-form-item>
+      </div>
+    </div>
 
-      <nz-divider nzText="Produtos" nzOrientation="left"></nz-divider>
-    <a nz-button nzType="primary" (click)="openModal()" style="margin-bottom: 15px">
-      <span translate="cadastros.movimentacaoestoque.label.add_produto"></span><i nz-icon nzType="plus"></i>
-    </a>
+    <nz-divider nzText="Produtos" nzOrientation="left"></nz-divider>
+      <div nz-row nzGutter="16">
+        <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="12">
+          <app-form-item label="cadastros.produto.field.codigoBarras" controlName="codigoBarras" [required]="true">
+            <input nz-input placeholder="Código de barras" formControlName="produto" />
+          </app-form-item>
+        </div>
+        <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+          <app-form-item label="cadastros.movimentacaoestoque.detalhe.label.produto" controlName="produto">
+            <nz-select formControlName="produto" nzShowSearch nzAllowClear>
+              <nz-option *ngFor="let produto of produtos" [nzValue]="produto" [nzLabel]="produto.descricao"></nz-option>
+            </nz-select>
+          </app-form-item>
+        </div>
+        <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="3">
+          <app-form-item label="cadastros.movimentacaoestoque.detalhe.label.quantidade" controlName="quantidade">
+            <nz-input-number formControlName="quantidade" [nzMin]="1" [nzStep]="1"></nz-input-number>
+          </app-form-item>
+        </div>
+        <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="3">
+          <app-form-item label="general.errors.validation.empty" controlName="cliente">
+            <a nz-button nzType="primary" (click)="openModal()" style="margin-bottom: 15px">
+              <span translate="cadastros.movimentacaoestoque.label.add_produto"></span><i nz-icon nzType="plus"></i>
+            </a>
+          </app-form-item>
+        </div>
+      </div>
 
     <nz-table #tbl [nzData]="entity.pedidoDetalhes" style="margin-top: 15px">
       <thead *ngIf="entity.pedidoDetalhes?.length && entity.pedidoDetalhes?.length > 0">
@@ -46,8 +70,9 @@
         </tr>
       </tbody>
     </nz-table>
-    
-      <nz-modal [(nzVisible)]="isModalVisible" [nzTitle]="'cadastros.movimentacaoestoque.label.add_produto.title' | translate"
+
+    <nz-modal [(nzVisible)]="isModalVisible"
+      [nzTitle]="'cadastros.movimentacaoestoque.label.add_produto.title' | translate"
       (nzOnOk)="insereProduto(produtoForm.value)" (nzOnCancel)="isModalVisible = false">
       <form nz-form [formGroup]="produtoForm" *ngIf="produtoForm">
         <nz-form-item class="mb5">
@@ -70,9 +95,11 @@
         </nz-form-item>
       </form>
     </nz-modal>
-      <div class="actions">
-          <button nz-button class="btn-salvar" nzType="primary" (click)="save(form.value)">{{ 'general.buttons.save' | translate }}</button>
-          <button nz-button class="btn-voltar" nzType="default" (click)="back()">{{ 'general.buttons.back' | translate }}</button>
-      </div>
+    <div class="actions">
+      <button nz-button class="btn-salvar" nzType="primary"
+        (click)="save(form.value)">{{ 'general.buttons.save' | translate }}</button>
+      <button nz-button class="btn-voltar" nzType="default"
+        (click)="back()">{{ 'general.buttons.back' | translate }}</button>
+    </div>
   </form>
 </nz-card>

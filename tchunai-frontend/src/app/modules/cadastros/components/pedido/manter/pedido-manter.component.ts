@@ -56,6 +56,9 @@ export class PedidoManterComponent implements OnInit {
       data: [this.entity.data ? this.entity.data : new Date(), [Validators.required]],
       cliente: [this.entity.cliente, []],
       valorTotal: [this.entity.valorTotal, []],
+      codigoBarras: [null, [Validators.required]],
+      produto: [null, [Validators.required]],
+      quantidade: [1, [Validators.required]]
     });
 
     this.inicializaProdutoForm();
@@ -63,6 +66,7 @@ export class PedidoManterComponent implements OnInit {
 
   inicializaProdutoForm() {
     this.produtoForm = this.formBuilder.group({
+      codigoBarras: [null, [Validators.required]],
       produto: [null, [Validators.required]],
       quantidade: [1, [Validators.required]]
     });
