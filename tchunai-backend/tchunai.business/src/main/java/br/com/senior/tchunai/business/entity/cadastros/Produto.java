@@ -55,6 +55,10 @@ public class Produto implements Serializable {
     private Cor cor;
 
     @ManyToOne
+    @JoinColumn(name="colecao_id")
+    private Colecao colecao;
+
+    @ManyToOne
     @JoinColumn(name="tamanho_id")
     private Tamanho tamanho;
 

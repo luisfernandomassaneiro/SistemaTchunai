@@ -1,3 +1,8 @@
+import { ColecaoService } from './services/colecao.service';
+import { ColecaoManterComponent } from './components/colecao/manter/colecao-manter.component';
+import { ColecaoFilterComponent } from './components/colecao/listar/filter/colecao-filter.component';
+import { ColecaoVisualizarComponent } from './components/colecao/visualizar/colecao-visualizar.component';
+import { ColecaoListarComponent } from './components/colecao/listar/colecao-listar.component';
 import { TamanhoService } from './services/tamanho.service';
 import { TamanhoManterComponent } from './components/tamanho/manter/tamanho-manter.component';
 import { TamanhoFilterComponent } from './components/tamanho/listar/filter/tamanho-filter.component';
@@ -76,7 +81,11 @@ import { CadastrosRoutes } from './cadastros.routes';
     TamanhoListarComponent,
     TamanhoVisualizarComponent,
     TamanhoFilterComponent,
-    TamanhoManterComponent
+    TamanhoManterComponent,
+    ColecaoListarComponent,
+    ColecaoVisualizarComponent,
+    ColecaoFilterComponent,
+    ColecaoManterComponent
   ],
   imports: [
     SharedModule,
@@ -90,7 +99,8 @@ import { CadastrosRoutes } from './cadastros.routes';
     CategoriaService,
     CorService,
     MarcaService,
-    TamanhoService
+    TamanhoService,
+    ColecaoService
   ],
   entryComponents: [
   ],

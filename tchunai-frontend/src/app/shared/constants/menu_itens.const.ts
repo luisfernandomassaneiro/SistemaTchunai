@@ -20,7 +20,7 @@ export const navItems = [ {
     text : 'Produto',
     link : '/cadastros/produto',
     i18n : 'menu.cadastros.produto',
-    icon : 'fas fa-paint-brush'
+    icon : 'fas fa-tshirt'
   }, {
     key : 'cadastros.movimentacaoestoque',
     text : 'MovimentacaoEstoque',
@@ -29,7 +29,7 @@ export const navItems = [ {
     icon : 'fas fa-exchange-alt'
   }, {
     key : 'cadastros.pedido',
-    text : 'Novo Pedido',
+    text : 'NovoPedido',
     link : '/cadastros/pedido',
     i18n : 'menu.cadastros.pedido',
     icon : 'anticonanticon-file'
@@ -43,12 +43,17 @@ export const navItems = [ {
     key : 'cadastros',
     text : 'Cadastros',
     i18n : 'menu.cadastros',
-    icon : 'anticonanticon-senior:icon',
+    icon : 'fas fa-plus-circle',
     children : [ {
       key : 'cadastros.categoria',
       text : 'Categoria',
       link : '/cadastros/categoria',
       i18n : 'menu.cadastros.categoria'
+    }, {
+      key : 'cadastros.colecao',
+      text : 'Colecao',
+      link : '/cadastros/colecao',
+      i18n : 'menu.cadastros.colecao'
     }, {
       key : 'cadastros.cor',
       text : 'Cor',

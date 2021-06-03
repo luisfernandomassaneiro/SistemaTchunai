@@ -10,15 +10,15 @@
     </div>
     <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
       <label class='page-view-label'>{{ 'cadastros.produto.field.precocusto' | translate }}</label>
-      <p class='page-view-value'>{{ entity.precoCusto }}</p>
+      <p class='page-view-value'>{{ entity.precoCusto | currency:'BRL':true:'1.2-2' }}</p>
     </div>
     <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
       <label class='page-view-label'>{{ 'cadastros.produto.field.precovenda' | translate }}</label>
-      <p class='page-view-value'>{{ entity.precoVenda }}</p>
+      <p class='page-view-value'>{{ entity.precoVenda | currency:'BRL':true:'1.2-2' }}</p>
     </div>
     <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
       <label class='page-view-label'>{{ 'cadastros.produto.field.percentuallucro' | translate }}</label>
-      <p class='page-view-value'>{{ entity.percentualLucro }}</p>
+      <p class='page-view-value'>{{ entity.percentualLucro }}%</p>
     </div>
   </div>
   <div nz-row nzGutter="16">
@@ -27,8 +27,40 @@
       <p class='page-view-value pb0'>{{ entity.peso }}</p>
     </div>
     <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+      <label class='page-view-label'>{{ 'cadastros.produto.field.quantidadeAtual' | translate }}</label>
+      <p class='page-view-value pb0'>{{ entity.quantidadeAtual }}</p>
+    </div>
+    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+      <label class='page-view-label'>{{ 'cadastros.produto.field.codigoBarras' | translate }}</label>
+      <p class='page-view-value pb0'>{{ entity.codigoBarras }}</p>
+    </div>
+    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
       <label class='page-view-label'>{{ 'cadastros.produto.field.active' | translate }}</label>
       <p class='page-view-value pb0'>{{'general.labels.' + entity.active | translate}}</p>
+    </div>
+  </div>
+  <div nz-row nzGutter="16">
+    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+      <label class='page-view-label'>{{ 'cadastros.produto.field.categoria' | translate }}</label>
+      <p class='page-view-value pb0'>{{ entity.categoria.descricao }}</p>
+    </div>
+    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+      <label class='page-view-label'>{{ 'cadastros.produto.field.marca' | translate }}</label>
+      <p class='page-view-value pb0'>{{ entity.marca.descricao }}</p>
+    </div>
+    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+      <label class='page-view-label'>{{ 'cadastros.produto.field.tamanho' | translate }}</label>
+      <p class='page-view-value pb0'>{{ entity.tamanho.descricao }}</p>
+    </div>
+    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+      <label class='page-view-label'>{{ 'cadastros.produto.field.cor' | translate }}</label>
+      <p class='page-view-value pb0'>{{ entity.cor.descricao}}</p>
+    </div>
+  </div>
+  <div nz-row nzGutter="16">
+    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+      <label class='page-view-label'>{{ 'cadastros.produto.field.colecao' | translate }}</label>
+      <p class='page-view-value pb0'>{{ entity.colecao.descricao }}</p>
     </div>
   </div>
   <div class="actions">

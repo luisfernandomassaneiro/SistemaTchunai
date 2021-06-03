@@ -89,7 +89,8 @@
     "cadastros.categoria" : "Categoria",
     "cadastros.cor" : "Cor",
     "cadastros.marca" : "Marca",
-    "cadastros.tamanho" : "Tamanho"
+    "cadastros.tamanho" : "Tamanho",
+    "cadastros.colecao" : "Colecao"
   },
   "error" : {
     "500.title" : "Server error",
@@ -169,6 +170,12 @@
     "tamanho.add.title" : "New Tamanho",
     "tamanho.edit.title" : "Tamanho Update",
     "tamanho.field.id" : "Id",
-    "tamanho.field.descricao" : "Descricao"
+    "tamanho.field.descricao" : "Descricao",
+    "colecao.list.title" : "Colecao Listing",
+    "colecao.view.title" : "View Colecao",
+    "colecao.add.title" : "New Colecao",
+    "colecao.edit.title" : "Colecao Update",
+    "colecao.field.id" : "Id",
+    "colecao.field.descricao" : "Descricao"
   }
 }

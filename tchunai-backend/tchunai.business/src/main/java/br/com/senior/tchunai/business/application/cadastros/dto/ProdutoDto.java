@@ -1,9 +1,6 @@
 package br.com.senior.tchunai.business.application.cadastros.dto;
 
-import br.com.senior.tchunai.business.application.cadastros.dominio.dto.CategoriaDominioDto;
-import br.com.senior.tchunai.business.application.cadastros.dominio.dto.CorDominioDto;
-import br.com.senior.tchunai.business.application.cadastros.dominio.dto.MarcaDominioDto;
-import br.com.senior.tchunai.business.application.cadastros.dominio.dto.TamanhoDominioDto;
+import br.com.senior.tchunai.business.application.cadastros.dominio.dto.*;
 import lombok.Data;
 import java.math.BigDecimal;
 
@@ -21,5 +18,6 @@ public class ProdutoDto {
     private CategoriaDominioDto categoria;
     private MarcaDominioDto marca;
     private TamanhoDominioDto tamanho;
+    private ColecaoDominioDto colecao;
     private String codigoBarras;
 }

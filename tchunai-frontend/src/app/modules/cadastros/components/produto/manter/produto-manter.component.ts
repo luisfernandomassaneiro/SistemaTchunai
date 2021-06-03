@@ -13,6 +13,7 @@ import { CorDominioService } from '@shared/services/domain/cadastros/cor-domain.
 import { TamanhoDominioService } from '@shared/services/domain/cadastros/tamanho-domain.service';
 import { CategoriaDominioService } from '@shared/services/domain/cadastros/categoria-domain.service';
 import { MarcaDominioService } from '@shared/services/domain/cadastros/marca-domain.service';
+import { ColecaoDominioService } from '@shared/services/domain/cadastros/colecao-domain.service';
 
 @Component({
   templateUrl: './produto-manter.component.html'
@@ -34,7 +35,8 @@ export class ProdutoManterComponent implements OnInit {
     public corService: CorDominioService,
     public categoriaService: CategoriaDominioService,
     public tamanhoService: TamanhoDominioService,
-    public marcaService: MarcaDominioService
+    public marcaService: MarcaDominioService,
+    public colecaoService: ColecaoDominioService
 ) {}
 
   ngOnInit(): void {
@@ -63,7 +65,8 @@ export class ProdutoManterComponent implements OnInit {
       marca: [this.entity.marca, []],
       tamanho: [this.entity.tamanho, []],
       categoria: [this.entity.categoria, []],
-      codigoBarras: [this.entity.codigoBarras, []]
+      codigoBarras: [this.entity.codigoBarras, []],
+      colecao: [this.entity.colecao, []]
     });
   }
 
@@ -73,6 +76,34 @@ export class ProdutoManterComponent implements OnInit {
     }
     this.service.saveAndNotify(model, model.id).then(() => {
         history.go(-1);
+    });
+  }
+
+  saveAndContinue(model): void {
+    if (!ReactiveFormsUtils.eval(this.form)) {
+      return;
+    }
+    this.service.saveAndNotify(model, model.id).then(() => {
+      this.entity.id = null;
+      this.entity.precoCusto = null;
+      this.entity.percentualLucro = 100;
+      this.entity.precoVenda = null;
+      this.entity.peso = null;
+      this.entity.quantidadeAtual = null;
+      this.entity.codigoBarras = null;
+      this.entity.marca = null;
+      this.entity.tamanho = null;
+      this.entity.cor = null;
+      this.form.get('id').setValue(null);
+      this.form.get('precoCusto').setValue(null);
+      this.form.get('percentualLucro').setValue(100);
+      this.form.get('precoVenda').setValue(null);
+      this.form.get('peso').setValue(null);
+      this.form.get('quantidadeAtual').setValue(null);
+      this.form.get('codigoBarras').setValue(null);
+      this.form.get('marca').setValue(null);
+      this.form.get('tamanho').setValue(null);
+      this.form.get('cor').setValue(null);
     });
   }
 

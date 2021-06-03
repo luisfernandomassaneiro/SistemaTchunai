@@ -1,3 +1,7 @@
+import { ColecaoManterComponent } from './components/colecao/manter/colecao-manter.component';
+import { ColecaoService } from './services/colecao.service';
+import { ColecaoVisualizarComponent } from './components/colecao/visualizar/colecao-visualizar.component';
+import { ColecaoListarComponent } from './components/colecao/listar/colecao-listar.component';
 import { TamanhoManterComponent } from './components/tamanho/manter/tamanho-manter.component';
 import { TamanhoService } from './services/tamanho.service';
 import { TamanhoVisualizarComponent } from './components/tamanho/visualizar/tamanho-visualizar.component';
@@ -238,6 +242,32 @@ const ROUTES = [
       {
         path: 'incluir',
         component: TamanhoManterComponent
+      } ]
+  },
+  {
+    path: 'colecao',
+    children: [
+      {
+        path: '',
+        component: ColecaoListarComponent
+      },
+      {
+        path: 'visualizar/:id',
+        resolve: {
+          entity: ColecaoService
+        },
+        component: ColecaoVisualizarComponent
+      },
+      {
+        path: 'alterar/:id',
+        resolve: {
+          entity: ColecaoService
+        },
+        component: ColecaoManterComponent
+      },
+      {
+        path: 'incluir',
+        component: ColecaoManterComponent
       } ]
   }
 ];

@@ -76,9 +76,20 @@
         </app-form-item>
       </div>
     </div>
+    <div nz-row nzGutter="16">
+      <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
+        <app-form-item label="cadastros.produto.field.colecao" controlName="colecao">
+          <app-lazy-list [loader]='colecaoService' label='descricao'
+            [nzPlaceHolder]="'general.labels.select' | translate" [nzAllowClear]='true' formControlName='colecao'
+            [compareWith]='comparator.compare("id")'></app-lazy-list>
+        </app-form-item>
+      </div>
+    </div>
     <div class="actions">
       <button nz-button class="btn-salvar" nzType="primary"
         (click)="save(form.value)">{{ 'general.buttons.save' | translate }}</button>
+      <button nz-button class="btn-salvar" nzType="primary" *ngIf="!entity.id"
+                (click)="saveAndContinue(form.value)">{{ 'general.buttons.saveAndContinue' | translate }}</button>
       <button nz-button class="btn-voltar" nzType="default"
         (click)="back()">{{ 'general.buttons.back' | translate }}</button>
     </div>

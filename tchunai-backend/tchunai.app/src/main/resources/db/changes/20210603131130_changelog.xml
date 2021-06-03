@@ -1,0 +1,19 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="nando (generated)" id="1622725899059-1">
+        <createTable tableName="colecao">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="colecaoPK"/>
+            </column>
+            <column name="descricao" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="nando (generated)" id="1622725899059-2">
+        <addColumn tableName="produto">
+            <column name="colecao_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="nando (generated)" id="1622725899059-3">
+        <addForeignKeyConstraint baseColumnNames="colecao_id" baseTableName="produto" constraintName="FKhcn4rlm2vx0hqikxatw4m3bfd" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="colecao" validate="true"/>
+    </changeSet>
+</databaseChangeLog>
