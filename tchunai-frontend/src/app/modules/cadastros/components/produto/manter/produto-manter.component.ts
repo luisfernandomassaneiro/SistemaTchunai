@@ -11,9 +11,10 @@ import { ProdutoModel } from '../../../models/produto.model';
 import { HashService } from '@shared/services/hash.service';
 import { CorDominioService } from '@shared/services/domain/cadastros/cor-domain.service';
 import { TamanhoDominioService } from '@shared/services/domain/cadastros/tamanho-domain.service';
-import { CategoriaDominioService } from '@shared/services/domain/cadastros/categoria-domain.service';
+import { CategoriaDominioModel, CategoriaDominioService } from '@shared/services/domain/cadastros/categoria-domain.service';
 import { MarcaDominioService } from '@shared/services/domain/cadastros/marca-domain.service';
 import { ColecaoDominioService } from '@shared/services/domain/cadastros/colecao-domain.service';
+import { CategoriaService } from 'app/modules/cadastros/services/categoria.service';
 
 @Component({
   templateUrl: './produto-manter.component.html'
@@ -24,6 +25,7 @@ export class ProdutoManterComponent implements OnInit {
   entity: ProdutoModel;
   title: string;
   form: FormGroup;
+  categorias: CategoriaDominioModel[]
   breadcrumb: BreadCrumbItem[] = [{label: 'menu.home', route: '/'}, {label: 'menu.cadastros.produto', route: '/cadastros/produto'}];
 
   constructor(
@@ -33,11 +35,16 @@ export class ProdutoManterComponent implements OnInit {
     private router: Router,
     private hash: HashService,
     public corService: CorDominioService,
-    public categoriaService: CategoriaDominioService,
+    public categoriaDominioService: CategoriaDominioService,
+    public categoriaService: CategoriaService,
     public tamanhoService: TamanhoDominioService,
     public marcaService: MarcaDominioService,
     public colecaoService: ColecaoDominioService
-) {}
+) {
+  categoriaDominioService.list().subscribe(categorias => {
+    this.categorias = categorias;
+  })
+}
 
   ngOnInit(): void {
 
@@ -117,6 +124,37 @@ export class ProdutoManterComponent implements OnInit {
     if (precoCusto && percentualLucro) {
       let precoVenda = ((percentualLucro/100) * precoCusto) + precoCusto;
       this.form.get('precoVenda').setValue(precoVenda);
+    }
+  }
+
+  calculaPercentualLucro() {
+    let precoVenda = this.form.get('precoVenda').value;
+    let precoCusto = this.form.get('precoCusto').value;
+    if (precoCusto && precoVenda) {
+      let percentualLucro = (precoVenda / precoCusto) * 100;
+      this.form.get('percentualLucro').setValue(percentualLucro);
+    }
+  }
+
+  calculaValorCusto() {
+    let percentualLucro = this.form.get('percentualLucro').value;
+    let precoVenda = this.form.get('precoVenda').value;
+    if (precoVenda && percentualLucro) {
+      let percentualLucroPorDois = percentualLucro / 2;
+      let precoCusto = percentualLucroPorDois <= 0 ? precoVenda : (percentualLucroPorDois/100) * precoVenda;
+      this.form.get('precoCusto').setValue(precoCusto);
+    }
+  }
+
+  adicionarCategoriaNaLista(input: HTMLInputElement): void {
+    const value = input.value;
+    if (value) {
+      let categoriaModel = new CategoriaDominioModel();
+      categoriaModel.descricao = value;
+      this.categoriaService.save(categoriaModel).subscribe(categoriaSalva => {
+        this.form.get('categoria').setValue(categoriaModel);
+        this.categorias = [...this.categorias, categoriaModel];
+      })
     }
   }
 }

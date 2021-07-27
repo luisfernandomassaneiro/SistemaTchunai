@@ -1,17 +1,14 @@
 package br.com.senior.tchunai.external.api.cadastros;
 
+import br.com.senior.tchunai.business.application.cadastros.usecase.produto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import br.com.senior.tchunai.lib.business.application.usecase.UseCaseFacade;
 import br.com.senior.tchunai.lib.business.application.usecase.impl.ListaPaginada;
 import br.com.senior.tchunai.business.application.cadastros.dto.ProdutoResumoDto;
-import br.com.senior.tchunai.business.application.cadastros.usecase.produto.UcListarProduto;
 import br.com.senior.tchunai.business.application.cadastros.dto.ProdutoDto;
-import br.com.senior.tchunai.business.application.cadastros.usecase.produto.UcObterProduto;
-import br.com.senior.tchunai.business.application.cadastros.usecase.produto.UcIncluirProduto;
-import br.com.senior.tchunai.business.application.cadastros.usecase.produto.UcAlterarProduto;
-import br.com.senior.tchunai.business.application.cadastros.usecase.produto.UcExcluirProduto;
+
 import javax.servlet.http.HttpServletResponse;
 import br.com.senior.tchunai.external.reports.JasperReportBuilder;
 import br.com.senior.tchunai.lib.commom.Messages;
@@ -56,7 +53,7 @@ public class ProdutoController {
     }
 
     @GetMapping(value = "export")
-    public void exportar(UcListarProduto filtro, HttpServletResponse response, @RequestParam(name = "format") ReportFormatEnum format) {
+    public void exportar(UcRelatorioProduto filtro, HttpServletResponse response, @RequestParam(name = "format") ReportFormatEnum format) {
         reportBuilder.generateReport("produto", null, new PagedBeanCollectionDataSource<>(facade, messages, filtro), response, format);
     }
 

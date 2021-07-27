@@ -10,7 +10,7 @@ public class ProdutoDto {
     private String descricao;
     private BigDecimal precoCusto;
     private BigDecimal precoVenda;
-    private Integer percentualLucro;
+    private BigDecimal percentualLucro;
     private String peso;
     private boolean active;
     private Integer quantidadeAtual;

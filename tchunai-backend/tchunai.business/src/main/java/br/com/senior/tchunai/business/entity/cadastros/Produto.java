@@ -30,7 +30,7 @@ public class Produto implements Serializable {
     private BigDecimal precoVenda;
 
     @Column(name = "percentual_lucro")
-    private Integer percentualLucro;
+    private BigDecimal percentualLucro;
 
     @Column(name = "peso")
     private String peso;

@@ -24,6 +24,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.function.BiFunction;
 
@@ -35,6 +38,7 @@ public class JasperReportBuilder {
     private static final String PARAM_RESOURCE_BUNDLE = "REPORT_RESOURCE_BUNDLE";
     private static final String PARAM_IS_IGNORE_PAGINATION = "IS_IGNORE_PAGINATION";
     private static final String PARAM_LOGO = "LOGO";
+    static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     private static final Map<ReportFormatEnum, BiFunction<OutputStream, JasperPrint, Exporter<? extends ExporterInput, ? extends ReportExportConfiguration, ? extends ExporterConfiguration, ? extends ExporterOutput>>> exportersFn;
     static {
@@ -147,9 +151,8 @@ public class JasperReportBuilder {
 
         var exporter = exp.apply(response.getOutputStream(), print);
         exporter.exportReport();
-
         response.setContentType(format.getMediaType());
-        response.setHeader(HttpHeaders.CONTENT_DISPOSITION, String.format("attachment; filename=\"%s.%s\"", name, format.toString().toLowerCase()));
+        response.setHeader(HttpHeaders.CONTENT_DISPOSITION, String.format("attachment; filename=\"%s.%s\"", name + LocalDateTime.now().format(dtf), format.toString().toLowerCase()));
     }
 
     /**

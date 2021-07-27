@@ -14,6 +14,7 @@ import br.com.senior.tchunai.business.application.cadastros.dto.ProdutoDto;
 
 import javax.validation.constraints.AssertFalse;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 import static br.com.senior.tchunai.business.entity.cadastros.QProduto.produto;
 
@@ -40,7 +41,11 @@ public class UcAlterarProduto extends IdentifiedUseCase<ProdutoDto, Long> {
 
     @AssertFalse(message = "page.cadastro.produto.codigoBarras.unique")
     public boolean isCodigoBarrasDuplicado() {
+        if (Objects.isNull(produto.codigoBarras) || Objects.isNull(codigoBarras)) {
+            return false;
+        }
         BooleanBuilder b = new BooleanBuilder(produto.codigoBarras.eq(codigoBarras));
+        b.and(produto.id.ne(getId()));
         return repository.exists(b);
     }
     

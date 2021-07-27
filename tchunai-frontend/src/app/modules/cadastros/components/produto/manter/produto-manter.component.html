@@ -9,19 +9,19 @@
         </app-form-item>
       </div>
       <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
-        <app-form-item label="cadastros.produto.field.precocusto" controlName="precoCusto" >
-          <input currencyMask nz-input type="text" formControlName='precoCusto' (ngModelChange)="calculaValorVenda()"
+        <app-form-item label="cadastros.produto.field.precovenda" controlName="precoVenda">
+          <input currencyMask nz-input type="text" formControlName='precoVenda' (blur)="calculaValorCusto()"
             [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', align: 'left' }" />
         </app-form-item>
       </div>
       <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
         <app-form-item label="cadastros.produto.field.percentuallucro" controlName="percentualLucro">
-          <nz-input-number formControlName='percentualLucro' [nzMin]="0"[nzStep]="1" (ngModelChange)="calculaValorVenda()"></nz-input-number>
+          <nz-input-number formControlName='percentualLucro' [nzMin]="0"[nzStep]="1" (blur)="calculaValorVenda()"></nz-input-number>
         </app-form-item>
       </div>
       <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
-        <app-form-item label="cadastros.produto.field.precovenda" controlName="precoVenda">
-          <input currencyMask nz-input type="text" formControlName='precoVenda'
+        <app-form-item label="cadastros.produto.field.precocusto" controlName="precoCusto" >
+          <input currencyMask nz-input type="text" formControlName='precoCusto' (blur)="calculaValorVenda()"
             [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', align: 'left' }" />
         </app-form-item>
       </div>
@@ -51,9 +51,23 @@
     <div nz-row nzGutter="16">
       <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
         <app-form-item label="cadastros.produto.field.categoria" controlName="categoria">
-          <app-lazy-list [loader]='categoriaService' label='descricao'
+          <app-lazy-list [loader]='categoriaDominioService' label='descricao'
             [nzPlaceHolder]="'general.labels.select' | translate" [nzAllowClear]='true' formControlName='categoria'
             [compareWith]='comparator.compare("id")'></app-lazy-list>
+         <!--   <nz-select nzShowSearch nzAllowClear [nzDropdownRender]="renderTemplate" nzPlaceHolder="Adicionar categoria" formControlName='categoria'>
+              <nz-option *ngFor="let item of categorias" [nzLabel]="item.descricao" [nzValue]="item"></nz-option>
+            </nz-select>
+            <ng-template #renderTemplate>
+              <nz-divider></nz-divider>
+              <div class="container">
+                <input type="text" nz-input #inputElement />
+                <a class="add-item" (click)="adicionarCategoriaNaLista(inputElement)">
+                  <i nz-icon nzType="plus"></i>
+                  Add
+                </a>
+              </div>
+            </ng-template>
+            -->
         </app-form-item>
       </div>
       <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6">
