@@ -1,16 +1,15 @@
 package br.com.senior.tchunai.business.application.cadastros.usecase.produto;
 
-import br.com.senior.tchunai.business.application.cadastros.dominio.dto.*;
+import br.com.senior.tchunai.business.application.cadastros.dto.ProdutoDto;
+import br.com.senior.tchunai.business.application.cadastros.mappers.ProdutoMapper;
+import br.com.senior.tchunai.business.entity.cadastros.*;
+import br.com.senior.tchunai.business.repository.cadastros.CategoriaRepository;
+import br.com.senior.tchunai.business.repository.cadastros.ProdutoRepository;
+import br.com.senior.tchunai.lib.business.application.usecase.impl.IdentifiedUseCase;
 import com.querydsl.core.BooleanBuilder;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import br.com.senior.tchunai.business.application.cadastros.mappers.ProdutoMapper;
-import br.com.senior.tchunai.business.entity.cadastros.Produto;
-import br.com.senior.tchunai.business.repository.cadastros.ProdutoRepository;
-import br.com.senior.tchunai.lib.business.application.usecase.impl.IdentifiedUseCase;
-import br.com.senior.tchunai.business.application.cadastros.dto.ProdutoDto;
 
 import javax.validation.constraints.AssertFalse;
 import java.math.BigDecimal;
@@ -32,11 +31,11 @@ public class UcAlterarProduto extends IdentifiedUseCase<ProdutoDto, Long> {
     private String peso;
     private boolean active;
     private Integer quantidadeAtual;
-    private CorDominioDto cor;
-    private CategoriaDominioDto categoria;
-    private MarcaDominioDto marca;
-    private TamanhoDominioDto tamanho;
-    private ColecaoDominioDto colecao;
+    private Cor cor;
+    private Categoria categoria;
+    private Marca marca;
+    private Tamanho tamanho;
+    private Colecao colecao;
     private String codigoBarras;
 
     @AssertFalse(message = "page.cadastro.produto.codigoBarras.unique")
